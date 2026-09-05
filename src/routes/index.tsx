@@ -7,7 +7,7 @@ import aboutArtist      from "@/assets/about-artist.jpg";
 import dewyFinish       from "@/assets/dewy-bride-clean.jpg";
 import hdLook           from "@/assets/hd-look.jpg";
 import glassSkin        from "@/assets/glass-skin-clean.jpg";
-import heroPanorama     from "@/assets/hero-panorama.jpg";
+import heroBackdrop     from "@/assets/glass-skin-hero.jpg";
 import airbrush1       from "@/assets/airbrush-1.jpg";
 import glass1          from "@/assets/glass-1.jpg";
 import hd1             from "@/assets/hd-1.jpg";
@@ -109,34 +109,60 @@ const otherServices = [
   { name: "Groom Look",        desc: "Sharp grooming and skin preparation for the groom." },
 ];
 
-/* Instagram Posts — each card links to Instagram */
-const instagramPosts = [
+/* Portfolio Categories & Looks */
+const portfolioCategories = [
+  { id: "wedding", label: "Wedding Looks" },
+  { id: "party",   label: "Party Looks" },
+  { id: "other",   label: "Other Looks" },
+] as const;
+
+type PortfolioCategory = (typeof portfolioCategories)[number]["id"];
+
+const weddingPhotos = [
   {
     src: airbrush1,
-    alt: "Airbrush bridal makeup",
-    caption: "Airbrush Bridal",
+    alt: "Airbrush bridal makeup by Kishaley",
+    title: "Airbrush Bridal Look",
+    tag: "Signature Wedding",
   },
   {
     src: glass1,
-    alt: "Glass skin bridal look",
-    caption: "Glass Skin Bride",
+    alt: "Glass skin bridal look by Kishaley",
+    title: "Glass Skin Signature Bride",
+    tag: "Signature Wedding",
   },
   {
     src: hd1,
-    alt: "HD bridal makeup finish",
-    caption: "HD Bridal Makeup",
+    alt: "HD bridal makeup finish by Kishaley",
+    title: "High Definition Bridal Look",
+    tag: "Signature Wedding",
   },
   {
     src: hd2,
-    alt: "HD bridal close up",
-    caption: "HD Close-Up",
+    alt: "HD bridal close up by Kishaley",
+    title: "HD Bridal Artistry",
+    tag: "Signature Wedding",
   },
+];
+
+const partyPlaceholders = [
+  { title: "Party Glam Makeup", tag: "Party Look", desc: "Photo slot reserved" },
+  { title: "Reception Glamour", tag: "Party Look", desc: "Photo slot reserved" },
+  { title: "Sangeet & Cocktail Night", tag: "Party Look", desc: "Photo slot reserved" },
+  { title: "Soft Glam Evening Look", tag: "Party Look", desc: "Photo slot reserved" },
+];
+
+const otherPlaceholders = [
+  { title: "Groom Styling & Prep", tag: "Other Look", desc: "Photo slot reserved" },
+  { title: "Bridesmaid Coordinated Look", tag: "Other Look", desc: "Photo slot reserved" },
+  { title: "Traditional Saree Draping", tag: "Other Look", desc: "Photo slot reserved" },
+  { title: "Editorial & Event Look", tag: "Other Look", desc: "Photo slot reserved" },
 ];
 
 const stats = [
   { value: "2000+", label: "Happy Clients" },
   { value: "12+",   label: "Years on Set" },
-  { value: "5.0 ★", label: "Top Rated" },
+  { value: "4.8 ★", label: "Google Rating" },
 ];
 
 const ritual = [
@@ -148,10 +174,12 @@ const ritual = [
 ];
 
 /* ── Constants ── */
-const INSTAGRAM = "https://www.instagram.com/kishaley_makeupartist";
-const WHATSAPP  = "https://wa.me/919894144977";
-const PHONE1    = "+91 98941 44977";
-const PHONE2    = "+91 75989 17977";
+const INSTAGRAM      = "https://www.instagram.com/kishaley_makeupartist";
+const WHATSAPP       = "https://wa.me/919894144977";
+const PHONE1         = "+91 98941 44977";
+const PHONE2         = "+91 75989 17977";
+const GOOGLE_MAPS    = "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry";
+const GOOGLE_REVIEWS = "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry";
 
 /* ── Helpers ── */
 function GoldDivider() {
@@ -184,6 +212,8 @@ function SectionLabelLight({ children }: { children: ReactNode }) {
 function Index() {
   const [sent, setSent] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("wedding");
+  const [selectedPhoto, setSelectedPhoto] = useState<{ src: string; alt: string; title: string; tag: string } | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -262,15 +292,17 @@ function Index() {
 
       {/* ══ SECTION 1: HERO (Dynamic & Responsive Typography) ══ */}
       <section className="relative min-h-[90vh] sm:min-h-screen overflow-hidden pt-18 sm:pt-20 flex items-center bg-charcoal">
-        {/* Backdrop Image */}
+        {/* Backdrop Image — Single luxury bridal photo with black transparent screen */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src={heroPanorama}
-            alt="Kishaley Bridal Makeup Studio Backdrop"
-            className="h-full w-full object-cover object-[75%_center] opacity-35 sm:opacity-40 brightness-105"
+            src={heroBackdrop}
+            alt="Kishaley Bridal Makeup Specialist"
+            className="h-full w-full object-cover object-[70%_20%] sm:object-[80%_center] opacity-60 brightness-95"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/40 sm:w-4/5" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/50" />
+          {/* Black transparent screen overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-black/60" />
         </div>
 
         {/* Text Content */}
@@ -495,56 +527,138 @@ function Index() {
         </div>
       </section>
 
-      {/* ══ SECTION 5: PORTFOLIO (Warm Brown Backdrop) ══ */}
+      {/* ══ SECTION 5: PORTFOLIO (Curated Looks by Occasion) ══ */}
       <section id="portfolio" className="py-16 sm:py-24 bg-charcoal text-cream">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 sm:mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
-            <div>
-              <SectionLabelDark>The Portfolio</SectionLabelDark>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
-                Bridal Looks, In the Making
-              </h2>
-            </div>
-            <p className="max-w-[36ch] text-xs sm:text-sm text-cream/75">
-              Follow{" "}
-              <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="text-gold font-bold underline hover:text-goldlight">
-                @kishaley_makeupartist
-              </a>{" "}
-              for recent bride transformations &amp; real ceremonies.
+          <div className="mb-8 sm:mb-12 text-center max-w-2xl mx-auto">
+            <SectionLabelDark>The Portfolio</SectionLabelDark>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
+              Signature Looks by Occasion
+            </h2>
+            <p className="mt-3 text-xs sm:text-sm text-cream/75">
+              Explore our handcrafted transformations. Click on any category below to view styles.
             </p>
           </div>
 
-          {/* Instagram Posts Grid — clicking opens Instagram profile */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-            {instagramPosts.map((post, idx) => (
-              <a
-                href={INSTAGRAM}
-                target="_blank"
-                rel="noreferrer"
-                key={idx}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg bg-charcoal2 block"
-                aria-label={`View ${post.caption} on Instagram`}
-              >
-                <img
-                  src={post.src}
-                  alt={post.alt}
-                  loading="lazy"
-                  className="aspect-[3/4] w-full object-cover object-top transition duration-500 group-hover:scale-110 group-hover:opacity-60"
-                />
-                {/* Hover overlay with caption */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-end pb-4 px-3">
-                  <svg className="w-7 h-7 text-white mb-1.5 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                  <span className="text-white text-[11px] font-semibold tracking-wide text-center drop-shadow">{post.caption}</span>
-                </div>
-              </a>
-            ))}
+          {/* Category Filter Tabs */}
+          <div className="flex justify-center items-center gap-2.5 sm:gap-4 mb-8 sm:mb-12 flex-wrap">
+            {portfolioCategories.map((cat) => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? "bg-gold text-charcoal shadow-lg shadow-gold/20 scale-105"
+                      : "bg-charcoal2 text-cream/75 border border-gold/25 hover:border-gold hover:text-gold"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
           </div>
 
-          <div className="mt-8 sm:mt-12 text-center">
-            <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="btn-outline text-xs sm:text-sm py-2.5 px-5 sm:py-3 sm:px-6">
-              View Complete Gallery on Instagram ↗
-            </a>
-          </div>
+          {/* Gallery View: Wedding Looks */}
+          {activeCategory === "wedding" && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
+              {weddingPhotos.map((photo, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedPhoto(photo)}
+                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg bg-charcoal2 block text-left cursor-pointer border border-transparent hover:border-gold/40 transition"
+                  aria-label={`Open ${photo.title} photo`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3 sm:p-4">
+                    <span className="text-[10px] text-gold font-bold tracking-wider uppercase">{photo.tag}</span>
+                    <p className="text-white text-xs sm:text-sm font-serif font-bold drop-shadow">{photo.title}</p>
+                    <span className="mt-1 text-[10px] text-cream/80">Click to view ✦</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Gallery View: Party Looks (Space Reserved) */}
+          {activeCategory === "party" && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
+              {partyPlaceholders.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group relative flex aspect-[3/4] flex-col items-center justify-center rounded-xl sm:rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal2/60 p-4 text-center transition hover:border-gold/60 hover:bg-charcoal2/80"
+                >
+                  <div className="mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gold/10 text-gold group-hover:scale-110 transition">
+                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                    </svg>
+                  </div>
+                  <p className="font-serif text-sm sm:text-base font-bold text-ivory mb-1">{item.title}</p>
+                  <span className="text-[10px] sm:text-xs text-gold/70 font-semibold">{item.tag}</span>
+                  <p className="mt-2 text-[10px] text-cream/50">Space reserved for party looks</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Gallery View: Other Looks (Space Reserved) */}
+          {activeCategory === "other" && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
+              {otherPlaceholders.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group relative flex aspect-[3/4] flex-col items-center justify-center rounded-xl sm:rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal2/60 p-4 text-center transition hover:border-gold/60 hover:bg-charcoal2/80"
+                >
+                  <div className="mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gold/10 text-gold group-hover:scale-110 transition">
+                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                    </svg>
+                  </div>
+                  <p className="font-serif text-sm sm:text-base font-bold text-ivory mb-1">{item.title}</p>
+                  <span className="text-[10px] sm:text-xs text-gold/70 font-semibold">{item.tag}</span>
+                  <p className="mt-2 text-[10px] text-cream/50">Space reserved for extra looks</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Modal Lightbox for viewing photos */}
+          {selectedPhoto && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-fade-in"
+              onClick={() => setSelectedPhoto(null)}
+            >
+              <div
+                className="relative max-w-2xl w-full max-h-[90vh] flex flex-col items-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setSelectedPhoto(null)}
+                  className="absolute -top-12 right-0 text-white/80 hover:text-white text-2xl font-bold bg-white/10 w-10 h-10 rounded-full flex items-center justify-center transition hover:bg-white/20 cursor-pointer"
+                  aria-label="Close photo preview"
+                >
+                  ✕
+                </button>
+                <img
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  className="max-h-[75vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-gold/30"
+                />
+                <div className="mt-3 text-center">
+                  <p className="font-serif text-lg text-ivory font-semibold">{selectedPhoto.title}</p>
+                  <p className="text-xs text-gold/80">{selectedPhoto.tag}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -559,53 +673,94 @@ function Index() {
            </div>
            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10">
              {/* Map */}
-             <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-xl bg-white/5 h-[400px] lg:h-auto">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.7197171618255!2d79.816401!3d11.9248231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53617300000001%3A0x6b9d6a3621df6815!2sVibrant%20Bridal%20Studio%20%26%20Beauty%20Care!5e0!3m2!1sen!2sin!4v1714568853744!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={false} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-xl bg-charcoal flex flex-col justify-between">
+                <div className="relative h-[320px] sm:h-[360px] lg:h-[380px] w-full">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=Vibrant+Bridal+Studio+%26+Beauty+Care,+100+Feet+Road,+Mudaliarpet,+Puducherry&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={false} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  {/* Floating Open in Google Maps button on map */}
+                  <a
+                    href={GOOGLE_MAPS}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-charcoal/95 px-3.5 py-1.5 text-xs font-semibold text-gold border border-gold/40 shadow-lg backdrop-blur-sm transition hover:bg-gold hover:text-charcoal hover:scale-105"
+                  >
+                    <span>Open in Maps</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                </div>
+                {/* Clickable bottom bar for map */}
+                <a
+                  href={GOOGLE_MAPS}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between p-3.5 sm:p-4 bg-charcoal/95 border-t border-gold/20 text-cream/90 hover:text-gold transition group"
+                >
+                  <span className="text-xs sm:text-sm font-medium">179, 100 Feet Road, Mudaliarpet, Pondicherry</span>
+                  <span className="text-xs font-semibold text-gold group-hover:underline flex items-center gap-1">Directions ↗</span>
+                </a>
              </div>
+
              {/* Reviews */}
              <div className="flex flex-col gap-4 sm:gap-6">
-                <a href="https://www.google.com/maps/place/Vibrant+Bridal+Studio+%26+Beauty+Care/@11.9164038,79.8071598,17z" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md hover:border-gold transition">
-                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <a 
+                  href={GOOGLE_REVIEWS} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="flex items-center gap-4 bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md hover:border-gold transition group cursor-pointer"
+                >
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-gold shrink-0 transition group-hover:scale-105" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                   <div>
                     <p className="text-lg sm:text-xl font-bold text-ivory">4.8 / 5.0</p>
                     <p className="text-xs sm:text-sm text-cream/70">Based on 138 Google Reviews</p>
                     <div className="flex gap-0.5 mt-1">
-                      {[1,2,3,4].map(i => <svg key={i} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
-                      <svg className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      {[1,2,3,4,5].map(i => <svg key={i} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
                     </div>
                   </div>
-                  <span className="ml-auto btn-outline text-[10px] sm:text-xs px-3 py-2 sm:px-4 sm:py-2.5 shrink-0">Read All</span>
+                  <span className="ml-auto btn-outline text-[10px] sm:text-xs px-3 py-2 sm:px-4 sm:py-2.5 shrink-0 group-hover:bg-gold group-hover:text-charcoal transition inline-flex items-center gap-1">
+                    Read All ↗
+                  </span>
                 </a>
                 
-                <div className="bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md">
+                <a 
+                  href={GOOGLE_REVIEWS}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md hover:border-gold/50 transition block cursor-pointer group"
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-9 w-9 sm:h-10 sm:w-10 bg-gold/20 rounded-full flex items-center justify-center font-bold text-gold">S</div>
                     <div>
                       <p className="font-bold text-ivory text-sm">Swetha R.</p>
                       <p className="text-xs text-gold">★★★★★</p>
                     </div>
+                    <span className="ml-auto text-[10px] text-gold/70 group-hover:text-gold font-semibold transition">Google Review ↗</span>
                   </div>
                   <p className="text-xs sm:text-sm text-cream/80 italic leading-relaxed">"Jayakala did an amazing job for my wedding. The glass skin look was flawless and lasted all day. Highly recommend her studio!"</p>
-                </div>
+                </a>
                 
-                <div className="bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md">
+                <a 
+                  href={GOOGLE_REVIEWS}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-charcoal p-5 sm:p-6 rounded-2xl border border-gold/20 shadow-md hover:border-gold/50 transition block cursor-pointer group"
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-9 w-9 sm:h-10 sm:w-10 bg-gold/20 rounded-full flex items-center justify-center font-bold text-gold">A</div>
                     <div>
                       <p className="font-bold text-ivory text-sm">Ananya K.</p>
                       <p className="text-xs text-gold">★★★★★</p>
                     </div>
+                    <span className="ml-auto text-[10px] text-gold/70 group-hover:text-gold font-semibold transition">Google Review ↗</span>
                   </div>
                   <p className="text-xs sm:text-sm text-cream/80 italic leading-relaxed">"Absolutely loved my reception makeup! The airbrush finish was so natural and lightweight. The studio ambiance is also wonderful."</p>
-                </div>
+                </a>
              </div>
            </div>
         </div>
