@@ -1,24 +1,46 @@
-# Pondicherry Bridal Elegance
+# Kishaley Makeup Artistry — Pondicherry Bridal Elegance
 
-https://www.instagram.com/kishaley_makeupartist?igsi=MTV1dGRsOGQwMWMyaQ== .... THIS IS AN INSTAGRAM PAGE OF A BRIDAL STUDIOS .. I WANT TO CREATE A POSH LOOKING WEBSITE FOR IT ... MAKE IT NON AISH .. IT IS VIBRANT BRIDAL STUDIOS LOCATED IN PONDICHERRY
+The official web application for **Kishaley Makeup Artistry** ([@kishaley_makeupartist](https://www.instagram.com/kishaley_makeupartist)), Pondicherry's premier bridal makeup studio.
 
-This project was built with [Lovable](https://lovable.dev).
+## Overview
 
-## Build with Lovable
+A bespoke, responsive web presence showcasing signature bridal styles, service menus, Google reviews & location, and seamless booking options.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/56c37aba-329f-4e32-b346-7ae129fa9edb).
+### Signature Services
+- **Dewy Finish Makeup** — Fresh, natural radiant bridal look
+- **HD Makeup** — Camera-ready flawless definition
+- **Glass Skin Makeup** — Luminous, seamless glow
+- **Airbrush Artistry** — Lightweight, water-resistant luxury finish
+- **Groom & Family Styling** — Subtle grooming, bridesmaid styling, and saree draping
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Tech Stack
 
-## Development
+- **Framework**: React 19, TanStack Start & TanStack Router
+- **State Management**: TanStack Query
+- **Styling**: Tailwind CSS & Lucide Icons
+- **Typography**: Cormorant Garamond & Jost
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or newer)
+- npm
+
+### Installation & Local Development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+```
+
+The development server will run at:
+```
+http://localhost:8080
+```
+
+### Production Build
+
+```sh
+npm run build
+npm run preview
 ```

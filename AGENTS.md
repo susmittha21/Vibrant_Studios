@@ -1,10 +1,9 @@
-<!-- LOVABLE:BEGIN -->
+# Agent Guidelines
+
 > [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+> Keep the repository in a stable, production-ready state with verified builds and clean TypeScript checks.
+
+## Development Standards
+- **Design & Layout**: Maintain modern luxury aesthetic tailored for Kishaley Makeup Artistry.
+- **Assets**: Ensure images are clean and high-resolution without external watermark or icon artifacts.
+- **Performance**: Optimize images, fonts, and responsive layout across mobile and desktop.
