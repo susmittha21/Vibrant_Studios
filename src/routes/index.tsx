@@ -102,11 +102,12 @@ const primaryServices = [
   },
 ];
 
-/* Other services from PDF (Mom makeup removed) */
+/* Occasion Services aligned with Portfolio */
 const otherServices = [
-  { name: "Bridesmaid Makeup", desc: "Coordinated, photo-ready glam for the entire bridal party." },
-  { name: "Party Makeup",      desc: "Event-ready looks for sangeets, cocktail nights & receptions." },
-  { name: "Groom Look",        desc: "Sharp grooming and skin preparation for the groom." },
+  { name: "Muhurtham Makeup", desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal look." },
+  { name: "Reception Makeup", desc: "Glamorous evening lehenga & saree look with 4K camera diffusion." },
+  { name: "Engagement Makeup", desc: "Radiant skin prep & romantic soft velvet glass-skin tones." },
+  { name: "Christian Wedding", desc: "Ethereal white gown, veil draping & fresh luminous glow." },
 ];
 
 /* Portfolio Categories & Looks */
@@ -237,7 +238,7 @@ function Index() {
               ["/",          "Home"],
               ["/#about",    "About"],
               ["/services",  "Services"],
-              ["/#portfolio","Portfolio"],
+              ["/portfolio", "Portfolio"],
               ["/journal",   "Journal"],
               ["/#contact",  "Contact"],
             ].map(([href, label]) => (
@@ -270,7 +271,7 @@ function Index() {
                 ["/",          "Home"],
                 ["/#about",    "About"],
                 ["/services",  "Services"],
-                ["/#portfolio","Portfolio"],
+                ["/portfolio", "Portfolio"],
                 ["/journal",   "Journal"],
                 ["/#contact",  "Contact"],
               ].map(([href, label]) => (
@@ -291,56 +292,59 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex flex-col justify-center overflow-hidden bg-charcoal pt-20 sm:pt-24 pb-12 sm:pb-20">
-        {/* Background Image Container — Hidden on mobile as requested, shown on sm+ screens */}
-        <div className="absolute inset-0 z-0 hidden sm:block">
+      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-charcoal pt-28 sm:pt-36 pb-20 sm:pb-28 min-h-[90vh]">
+        {/* Background Image Container — Visible on all devices */}
+        <div className="absolute inset-0 z-0">
           <img
             src={pinkSareeHero}
-            alt="Jayakala Bridal Makeup - Pink Saree Bride"
-            className="h-full w-full object-cover object-center opacity-75 brightness-95"
+            alt="Jayakala Bridal Makeup - Vibrant Bridal Studios"
+            className="h-full w-full object-cover object-center opacity-70 sm:opacity-75 brightness-95"
           />
-          {/* Subtle balanced overlay to ensure clear text legibility while showing the full image */}
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent sm:w-2/3" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-black/30" />
+          {/* Subtle balanced dark gradient overlay so the pink saree bride is clearly visible while text is 100% legible */}
+          <div className="absolute inset-0 bg-charcoal/60" />
+          <div className="absolute inset-0 bg-radial from-transparent via-charcoal/40 to-charcoal/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/80" />
         </div>
 
-        {/* Text Content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col justify-center px-4 sm:px-6">
-          <div className="max-w-2xl text-left">
-            <p className="mb-2 text-xs font-serif font-bold uppercase tracking-[0.25em] text-gold">
-              Vibrant Bridal Studios
+        {/* Centered Hero Content */}
+        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-center px-4 sm:px-6 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-charcoal/85 border border-gold/45 px-4 py-1.5 mb-5 shadow-lg backdrop-blur-sm">
+            <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
+            <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-goldlight">
+              Pondicherry · Kishaley Makeup Artist · Since 2014
             </p>
-            <SectionLabelDark>Pondicherry · Makeup Artist · Since 2014</SectionLabelDark>
+            <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
+          </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] text-ivory tracking-tight">
-              Bridal &amp;{" "}
-              <span className="shimmer not-italic block sm:inline">Skin&nbsp;Finish</span>{" "}
-              Makeup Specialist
-            </h1>
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.08] text-ivory tracking-tight drop-shadow-md">
+            Vibrant <span className="shimmer not-italic">Bridal Studios</span>
+          </h1>
 
-            <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-cream/90">
-              Dewy Finish, High Definition, Glass Skin Signature &amp; Airbrush artistry with
-              hairstyling and draping — from our studio in Pondicherry.
-            </p>
+          <p className="mt-4 sm:mt-5 text-base sm:text-xl md:text-2xl font-serif text-gold font-semibold tracking-wide">
+            Bridal &amp; Skin Finish Makeup Specialist
+          </p>
 
-            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
-              <a href="#contact" className="btn-primary text-xs sm:text-sm py-2.5 px-5 sm:py-3 sm:px-7">
-                Reserve Your Date ✦
-              </a>
-              <a href="#services" className="btn-outline text-xs sm:text-sm py-2.5 px-5 sm:py-3 sm:px-7">
-                Explore Services
-              </a>
-            </div>
+          <p className="mt-4 max-w-2xl text-xs sm:text-base text-cream/90 leading-relaxed mx-auto">
+            Dewy Finish, High Definition, Glass Skin Signature &amp; Airbrush artistry with
+            couture hairstyling and precision saree draping — by Jayakala.
+          </p>
 
-            <div className="mt-8 sm:mt-12 grid max-w-sm grid-cols-3 gap-4 sm:gap-6 border-t border-gold/25 pt-6 sm:pt-8">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <p className="font-serif text-2xl sm:text-3xl font-bold text-gold">{s.value}</p>
-                  <p className="mt-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-cream/65">{s.label}</p>
-                </div>
-              ))}
-            </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+            <a href="#contact" className="btn-primary text-xs sm:text-sm py-3 px-7 sm:px-8 shadow-xl">
+              Reserve Your Date ✦
+            </a>
+            <a href="#services" className="btn-outline text-xs sm:text-sm py-3 px-7 sm:px-8">
+              Explore Services
+            </a>
+          </div>
+
+          <div className="mt-10 sm:mt-14 grid max-w-md grid-cols-3 gap-6 sm:gap-10 border-t border-gold/25 pt-6 sm:pt-8 w-full">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="font-serif text-2xl sm:text-3xl font-bold text-gold">{s.value}</p>
+                <p className="mt-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-cream/70">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -442,7 +446,7 @@ function Index() {
                     src={service.img}
                     alt={service.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-[center_20%] transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs font-bold text-gold shadow-md">
                     {service.id}
@@ -476,12 +480,12 @@ function Index() {
             ))}
           </div>
 
-          {/* Additional Services Strip */}
+          {/* Additional Services Strip (Occasion Services) */}
           <div className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl border border-gold/25 bg-charcoal2 p-6 sm:p-8 shadow-sm">
             <p className="mb-5 sm:mb-6 text-center text-xs font-bold uppercase tracking-widest text-gold/80">
-              Additional Services
+              Services by Occasion
             </p>
-            <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {otherServices.map((s) => (
                 <div key={s.name} className="rounded-xl sm:rounded-2xl bg-charcoal/70 p-4 sm:p-5 border border-gold/20 shadow-xs hover:border-gold transition">
                   <h4 className="font-serif text-lg sm:text-xl font-bold text-goldlight">{s.name}</h4>
@@ -491,7 +495,7 @@ function Index() {
             </div>
             <div className="mt-6 text-center">
               <a href="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gold hover:underline transition">
-                View Full Services Menu &amp; Details →
+                View Full Services Menu &amp; Packages →
               </a>
             </div>
           </div>
@@ -509,11 +513,11 @@ function Index() {
           </div>
 
           {/* Luxury Cosmetics Flatlay Image Banner */}
-          <div className="mb-10 sm:mb-16 overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-gold/30 shadow-xl max-w-4xl mx-auto">
+          <div className="mb-10 sm:mb-16 overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-gold/30 shadow-xl max-w-4xl mx-auto h-52 sm:h-72 md:h-80 bg-white">
             <img
               src={cosmeticsFlatlay}
               alt="Bridal cosmetics flatlay and beauty palette with rose petals"
-              className="w-full aspect-[16/9] sm:aspect-[16/8] object-cover"
+              className="w-full h-full object-cover object-[center_18%]"
             />
           </div>
 
@@ -841,7 +845,7 @@ function Index() {
                   ["/",          "Home"],
                   ["/#about",    "About"],
                   ["/services",  "Services"],
-                  ["/#portfolio","Portfolio"],
+                  ["/portfolio", "Portfolio"],
                   ["/journal",   "Journal"],
                   ["/#contact",  "Book Now"],
                 ].map(([href, label]) => (

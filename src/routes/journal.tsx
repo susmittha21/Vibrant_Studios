@@ -1,20 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import type { ReactNode } from "react";
 
-import dewyService     from "@/assets/dewy-service.jpg";
+import glassSkinHero   from "@/assets/glass-skin-hero.jpg";
 import homeHdLook      from "@/assets/home-hd-look.png";
-import cosmeticsFlatlay from "@/assets/cosmetics-flatlay.jpg";
+import aboutArtist     from "@/assets/about-artist-new.jpg";
 import homeAirbrushLook from "@/assets/home-airbrush-look.jpg";
 
 export const Route = createFileRoute("/journal")({
   component: JournalPage,
   head: () => ({
     meta: [
-      { title: "Bridal Journal & Beauty Insights — Kishaley Makeup Artist" },
+      { title: "Bridal Journal & Beauty Insights — Kishaley Makeup Artist, Pondicherry" },
       {
         name: "description",
         content:
-          "Expert bridal makeup advice by Jayakala: Dewy vs Glass Skin, choosing HD makeup for 4K photography, and the wedding day skin prep ritual.",
+          "Expert bridal makeup advice by Jayakala: Dewy vs Glass Skin, choosing HD makeup for 4K photography, and wedding day skin prep rituals in Pondicherry.",
       },
     ],
     links: [{ rel: "canonical", href: "/journal" }],
@@ -44,46 +45,106 @@ function GoldDivider() {
   );
 }
 
-const articles = [
+interface Article {
+  id: string;
+  title: string;
+  category: string;
+  readTime: string;
+  summary: string;
+  img: string;
+  alt: string;
+  content: string[];
+  keyTakeaways: string[];
+}
+
+const articles: Article[] = [
   {
+    id: "dewy-vs-glass-skin",
     title: "Dewy Finish vs Glass Skin: Which is Right for Your Ceremony?",
     category: "Bridal Guide",
     readTime: "4 min read",
     summary:
-      "Understanding the subtle difference between luminous hydration and pore-perfect velvety glass skin — and how traditional venue lighting influences the choice.",
-    img: dewyService,
-    alt: "Dewy bridal makeup look by Kishaley",
+      "Understanding the subtle difference between luminous hydration and pore-perfect velvety glass skin — and how coastal humidity & venue lighting guide the right choice.",
+    img: glassSkinHero,
+    alt: "Dewy and glass skin bridal makeup look by Kishaley",
+    content: [
+      "When planning your wedding look, choosing between a Dewy Finish and Glass Skin comes down to skin type, climate, and the ceremony setting.",
+      "A Dewy Finish is all about lit-from-within radiance. We focus on intense moisture prep, lightweight illuminating bases, and soft cream highlights. It gives a youthful, fresh-faced glow that looks breathtaking in morning rituals and natural outdoor daylight.",
+      "Glass Skin, on the other hand, is a porcelain-smooth, poreless aesthetic. It balances high reflectivity with velvety oil-control. Using specialized layering of lightweight hydrating primers and micro-fine smoothing powders, blemishes and texture vanish without feeling heavy.",
+      "For South Indian weddings in Pondicherry and Tamil Nadu, Glass Skin is often preferred for long evening receptions with heavy spotlighting, while Dewy Finish is a favorite for intimate morning temple ceremonies."
+    ],
+    keyTakeaways: [
+      "Dewy: Best for dry to normal skin & daylight morning ceremonies.",
+      "Glass Skin: Best for combination skin & dramatic evening stage lighting.",
+      "Both styles are customized with sweat-resistant setting sprays to withstand coastal humidity."
+    ]
   },
   {
+    id: "hd-makeup-4k",
     title: "Why HD Makeup is Crucial for 4K Wedding Videography",
     category: "Technique",
     readTime: "5 min read",
     summary:
-      "Modern cinematic cameras capture every micro-detail. Discover how high-definition light-scattering pigments keep your skin flawless on screen without cakey buildup.",
+      "Modern cinematic 4K camera lenses capture every micro-detail. Discover how high-definition light-scattering pigments prevent cakey buildup under bright stage lighting.",
     img: homeHdLook,
     alt: "High definition bridal makeup by Kishaley",
+    content: [
+      "Traditional bridal makeup often relied on thick layers of pancake foundation to cover blemishes. However, with today's ultra-high-definition 4K lenses and cinema-grade lighting, heavy makeup immediately appears powdery and unnatural.",
+      "High Definition (HD) makeup uses micronized quartz, silica, and light-diffusing silicones. These ultra-fine pigments scatter light across your face, blurring imperfections while allowing natural skin texture to show through seamlessly.",
+      "HD formulas prevent flashback — that unwanted white chalky cast caused by heavy flash photography. The finish looks completely weightless and authentic to the naked eye while appearing flawless in high-resolution photo albums and cinematic films.",
+    ],
+    keyTakeaways: [
+      "Micronized pigments blend seamlessly without settling into fine lines.",
+      "100% flashback-proof formulation designed specifically for professional wedding cameras.",
+      "Provides full, buildable coverage that feels like a breathable second skin."
+    ]
   },
   {
+    id: "bridal-skin-prep",
     title: "The Ultimate 30-Day Bridal Skin Preparation Ritual",
     category: "Skin Care",
     readTime: "6 min read",
     summary:
-      "Great makeup begins with healthy skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation and stress management leading up to your wedding morning.",
-    img: cosmeticsFlatlay,
-    alt: "Cosmetics flatlay palette and beauty essentials",
+      "Flawless makeup always begins with healthy, well-prepped skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation, and routine care leading up to your wedding.",
+    img: aboutArtist,
+    alt: "Jayakala preparing bridal look on set in studio",
+    content: [
+      "Your wedding makeup is only as good as the canvas underneath. Starting your preparation 30 to 45 days prior ensures your skin is plump, hydrated, and receptive on your big morning.",
+      "Rule #1: Commit to a gentle CTM (Cleansing, Toning, Moisturizing) routine twice daily. Incorporate hyaluronic acid serums on damp skin to boost intracellular hydration.",
+      "Rule #2: Avoid introducing brand-new strong chemical peels or aggressive facial treatments within 3 weeks of your wedding date to prevent unexpected allergic breakouts or barrier peeling.",
+      "Rule #3: Daily SPF protection and 2.5 to 3 liters of water daily keep skin calm and radiant. During our pre-bridal consultation, we analyze your skin barrier to customize the primers and foundations for your wedding day."
+    ],
+    keyTakeaways: [
+      "30 Days Out: Focus on hydration, barrier repair, and gentle exfoliation.",
+      "7 Days Out: Stick strictly to tested products; no experimental salon treatments.",
+      "Wedding Morning: Arrive with a clean, pre-cleansed face ready for luxury skin prep."
+    ]
   },
   {
+    id: "airbrush-longevity",
     title: "The Airbrush Advantage: Tear-Proof & Humidity-Resistant Makeup",
     category: "Bridal Tips",
     readTime: "3 min read",
     summary:
-      "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance.",
+      "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance and all-day comfort.",
     img: homeAirbrushLook,
     alt: "Airbrush bridal makeup by Kishaley",
+    content: [
+      "South Indian weddings can be demanding: intense rituals around holy fire (Agni), heavy silk sarees, emotional moments, and high coastal humidity.",
+      "Airbrush makeup solves this by using compressed air to spray a micro-fine, atomized mist of silicone-based makeup onto the skin. Because it never rubs against the skin with brushes or sponges, it forms a cohesive, breathable, and waterproof shield.",
+      "The result is a weightless veil that resists sweat, tears, humidity, and outfit friction for up to 16+ hours without needing heavy touch-ups or powdery re-applications."
+    ],
+    keyTakeaways: [
+      "Ultra-hygienic application: No sponges or brushes touching sensitive skin.",
+      "Waterproof, sweat-proof, and tear-resistant endurance for 16+ hours.",
+      "Lightweight feel that never cracks or melts under ceremonial heat."
+    ]
   },
 ];
 
 function JournalPage() {
+  const [activeArticle, setActiveArticle] = useState<Article | null>(null);
+
   return (
     <div className="min-h-screen bg-charcoal font-sans text-cream antialiased overflow-x-hidden">
       {/* ══ NAVBAR ══ */}
@@ -124,12 +185,12 @@ function JournalPage() {
       {/* ══ HERO BANNER ══ */}
       <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-charcoal2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
-          <SectionLabel>The Journal</SectionLabel>
+          <SectionLabel>The Bridal Journal</SectionLabel>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-ivory tracking-tight">
-            Bridal Beauty <span className="shimmer">&amp; Insights</span>
+            Bridal Beauty <span className="shimmer">&amp; Artistry Insights</span>
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
-            Professional advice, bridal guides, and behind-the-scenes artistry notes from Jayakala.
+            Professional bridal makeup guidance, skin prep wisdom, and ceremony styling advice directly from Jayakala.
           </p>
         </div>
       </section>
@@ -142,24 +203,26 @@ function JournalPage() {
           <div className="grid gap-8 sm:gap-10 grid-cols-1 md:grid-cols-2">
             {articles.map((a) => (
               <article
-                key={a.title}
-                className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-md hover:border-gold hover:shadow-xl transition duration-300"
+                key={a.id}
+                onClick={() => setActiveArticle(a)}
+                className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-md hover:border-gold hover:shadow-xl transition duration-300 cursor-pointer"
               >
                 {/* Ribbon Symbol at Top Right */}
                 <div className="absolute top-0 right-4 z-20 flex flex-col items-center">
-                  <div className="bg-gradient-to-b from-amber-400 via-gold to-amber-600 text-charcoal shadow-lg px-2.5 py-1.5 rounded-b-sm font-bold text-[11px] tracking-wider uppercase flex items-center gap-1 border-x border-b border-gold/50">
+                  <div className="bg-gradient-to-b from-amber-300 via-gold to-amber-600 text-charcoal shadow-xl px-2.5 py-2 rounded-b-sm font-bold text-[10px] sm:text-[11px] tracking-wider uppercase flex items-center gap-1 border-x border-b border-gold/60">
                     <svg className="w-3.5 h-4 fill-charcoal" viewBox="0 0 24 24">
                       <path d="M5 3h14a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
                     </svg>
+                    <span className="hidden sm:inline font-serif font-extrabold text-[9px]">Kishaley</span>
                   </div>
                 </div>
 
-                <div className="relative aspect-[16/10] overflow-hidden bg-charcoal2 border-b border-gold/10">
+                <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-charcoal2 border-b border-gold/10">
                   <img
                     src={a.img}
                     alt={a.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-[center_top] transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
                 </div>
@@ -173,10 +236,12 @@ function JournalPage() {
                     {a.title}
                   </h2>
                   <p className="mt-3 text-xs sm:text-sm leading-relaxed text-cream/75">{a.summary}</p>
-                  <div className="mt-auto pt-6">
-                    <a href="/#contact" className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gold hover:underline transition">
-                      Discuss This Look for Your Big Day →
-                    </a>
+                  
+                  <div className="mt-auto pt-6 flex items-center justify-between border-t border-gold/15">
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gold group-hover:underline">
+                      Read Full Article →
+                    </span>
+                    <span className="text-xs text-cream/40">Tap to open</span>
                   </div>
                 </div>
               </article>
@@ -185,6 +250,70 @@ function JournalPage() {
         </div>
       </section>
 
+      {/* ══ ARTICLE MODAL / FULL READER ══ */}
+      {activeArticle && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-fade-in"
+          onClick={() => setActiveArticle(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-charcoal2 border border-gold/40 p-6 sm:p-10 shadow-2xl text-cream"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveArticle(null)}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/75 hover:text-white text-xl font-bold bg-white/10 w-9 h-9 rounded-full flex items-center justify-center transition hover:bg-white/20"
+              aria-label="Close article"
+            >
+              ✕
+            </button>
+
+            <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-rose mb-3">
+              <span>{activeArticle.category}</span>
+              <span className="text-gold/40">·</span>
+              <span className="text-cream/60">{activeArticle.readTime}</span>
+            </div>
+
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-ivory leading-tight">
+              {activeArticle.title}
+            </h2>
+
+            <div className="mt-5 mb-6 aspect-[16/10] overflow-hidden rounded-xl sm:rounded-2xl border border-gold/30">
+              <img src={activeArticle.img} alt={activeArticle.alt} className="w-full h-full object-cover object-[center_top]" />
+            </div>
+
+            <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-cream/85">
+              {activeArticle.content.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-xl bg-charcoal p-5 sm:p-6 border border-gold/25">
+              <h3 className="font-serif text-sm sm:text-base font-bold text-goldlight mb-3 flex items-center gap-2">
+                <span>✦</span> Jayakala's Key Recommendations
+              </h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-cream/80">
+                {activeArticle.keyTakeaways.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-gold font-bold">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-gold/20 flex flex-wrap items-center justify-between gap-4">
+              <a href="/#contact" onClick={() => setActiveArticle(null)} className="btn-primary text-xs sm:text-sm py-2.5 px-6">
+                Consult With Jayakala ✦
+              </a>
+              <button onClick={() => setActiveArticle(null)} className="btn-outline text-xs py-2.5 px-5">
+                Close Article
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ══ CTA ══ */}
       <section className="py-16 sm:py-24 bg-charcoal2">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
@@ -192,7 +321,7 @@ function JournalPage() {
             Ready to plan your wedding day look?
           </h2>
           <p className="mx-auto mt-4 sm:mt-5 max-w-lg text-cream/75 text-xs sm:text-sm leading-relaxed">
-            Schedule a personalized one-on-one bridal consultation with Jayakala.
+            Schedule a personalized one-on-one bridal consultation with Jayakala in Pondicherry.
           </p>
           <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
             <a href="/#contact" className="btn-primary text-xs sm:text-sm py-2.5 px-5 sm:py-3 sm:px-7">
@@ -219,7 +348,7 @@ function JournalPage() {
             <div>
               <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-gold/80">Quick Links</p>
               <ul className="flex flex-col gap-2 text-xs sm:text-sm text-cream/70">
-                {[["/","Home"],["/#about","About"],["/services","Services"],["/#portfolio","Portfolio"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
+                {[["/","Home"],["/#about","About"],["/services","Services"],["/portfolio","Portfolio"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
                   <li key={h}><a href={h} className="hover:text-gold transition font-medium">{l}</a></li>
                 ))}
               </ul>

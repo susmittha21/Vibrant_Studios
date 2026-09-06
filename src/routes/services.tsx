@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import type { ReactNode } from "react";
 
-/* ── Clean Real Photos from PDF ── */
-import hdLook        from "@/assets/hd-look.jpg";
-import glassSkin     from "@/assets/glass-skin-clean.jpg";
+/* ── Clean Real Photos from Studio ── */
 import airbrush1     from "@/assets/airbrush-1.jpg";
 import airbrush2     from "@/assets/airbrush-2.jpg";
 import airbrush3     from "@/assets/airbrush-3.jpg";
@@ -22,7 +21,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Explore Kishaley's 4 signature services: Dewy Finish (₹8,000), High Definition (₹12,000), Glass Skin Signature (₹15,000), and Airbrush Makeup. Plus Bridesmaid, Party & Groom styling.",
+          "Explore Kishaley's 4 signature services: Dewy Finish (₹8,000), High Definition (₹12,000), Glass Skin Signature (₹15,000), and Airbrush Makeup (₹20,000). Complete with Hairstyle & Saree Draping.",
       },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -52,13 +51,14 @@ function GoldDivider() {
   );
 }
 
-/* ── 4 Primary Services (Airbrush as #4) ── */
+/* ── 4 Primary Services ── */
 const primaryServices = [
   {
+    id: "dewy-finish",
     num: "01",
     name: "Dewy Finish Look",
     tagline: "A dewy finish, a radiant, luminous look that gives the appearance of a healthy, glowing complexion.",
-    details: "Crafted using lightweight, hydrating formulas and customized skin prep, this look creates an ethereal lit-from-within glow that looks natural and fresh throughout traditional ceremonies.",
+    details: "Crafted using lightweight, hydrating formulas and customized skin prep, this look creates an ethereal lit-from-within glow that looks natural and fresh throughout traditional morning ceremonies.",
     includes: ["HD Bridal Makeup", "Hairstyle & Florals", "Saree / Dupatta Draping"],
     price: "₹8,000",
     priceNote: "per session",
@@ -67,10 +67,11 @@ const primaryServices = [
     alt: "Dewy finish bridal look by Kishaley",
   },
   {
+    id: "high-definition",
     num: "02",
     name: "High Definition Look",
     tagline: "HD makeup is designed to enhance a bride's features & make them stand out in photos and videos.",
-    details: "Engineered specifically for 4K video and photography, high-definition makeup diffuses light across the skin, giving full seamless coverage without any cakey buildup under intense lighting.",
+    details: "Engineered specifically for 4K video and photography, high-definition makeup diffuses light across the skin, giving full seamless coverage without any cakey buildup under intense ceremony lighting.",
     includes: ["HD Bridal Makeup", "Hairstyle & Styling", "Saree / Lehanga Draping"],
     price: "₹12,000",
     priceNote: "per session",
@@ -79,6 +80,7 @@ const primaryServices = [
     alt: "High definition HD bridal look by Kishaley",
   },
   {
+    id: "glass-skin",
     num: "03",
     name: "Glass Skin Signature",
     tagline: "My Signature Bridal Makeup Look gives you a very natural, yet very finished and polished look. This hides blemishes, giving it a smooth and velvety finish.",
@@ -91,6 +93,7 @@ const primaryServices = [
     alt: "Glass skin signature bridal look by Kishaley",
   },
   {
+    id: "airbrush-makeup",
     num: "04",
     name: "Airbrush Makeup",
     tagline: "A weightless, seamless veil of micro-fine coverage that lasts from morning rites to the send-off.",
@@ -104,26 +107,45 @@ const primaryServices = [
   },
 ];
 
-/* ── Other services ── */
+/* ── Occasion / Other Services (Aligned with Portfolio) ── */
 const otherServices = [
   {
-    name: "Bridesmaid Makeup",
-    desc: "Coordinated, photo-ready glam for the entire bridal party — complementary to the bride's aesthetic while celebrating each bridesmaid's unique beauty.",
-    img: null,
+    name: "Muhurtham Makeup",
+    desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur designed for ritual mandap lighting and long-lasting wear.",
+    img: dewy1,
+    link: "/portfolio",
   },
   {
-    name: "Party Makeup",
-    desc: "Event-ready glamour for sangeets, cocktail nights, receptions and pre-wedding festivities. Striking eye artistry and long-lasting glow.",
-    img: null,
+    name: "Reception Makeup",
+    desc: "Glamorous evening looks, rich lehengas & modern bridal elegance with high-definition 4K camera diffusion and dramatic eye artistry.",
+    img: hd1,
+    link: "/portfolio",
   },
   {
-    name: "Groom Look",
-    desc: "Refined grooming and skin preparation designed to ensure the groom looks sharp, fresh, and camera-ready beside his bride on the big day.",
-    img: null,
+    name: "Engagement Makeup",
+    desc: "Fresh, radiant skin prep and soft romantic tones with velvet glass-skin finish to complement pastel drapes or evening gown attire.",
+    img: glass1,
+    link: "/portfolio",
+  },
+  {
+    name: "Christian Wedding",
+    desc: "Ethereal, glowing white-gown makeup with delicate hair florals, veil draping & luminous flash-proof photography finish.",
+    img: airbrush1,
+    link: "/portfolio",
   },
 ];
 
 function ServicesPage() {
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
+
+  const scrollToService = (id: string) => {
+    setSelectedServiceId(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-charcoal font-sans text-cream antialiased overflow-x-hidden">
       {/* ══ NAVBAR ══ */}
@@ -141,7 +163,7 @@ function ServicesPage() {
               ["/",          "Home"],
               ["/#about",    "About"],
               ["/services",  "Services"],
-              ["/#portfolio","Portfolio"],
+              ["/portfolio", "Portfolio"],
               ["/journal",   "Journal"],
               ["/#contact",  "Contact"],
             ].map(([href, label]) => (
@@ -166,12 +188,29 @@ function ServicesPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <SectionLabel>Our Services</SectionLabel>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-ivory tracking-tight">
-            Bridal Artistry &amp; <span className="shimmer">Signature Services</span>
+            Bridal Artistry &amp; <span className="shimmer">Signature Packages</span>
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
             Personalized bridal looks crafted by understanding skin type, texture, and preference.
             Every service includes complete Makeup, Hairstyle, and Saree Draping.
           </p>
+
+          {/* Quick Option Filter Buttons */}
+          <div className="mt-8 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+            {primaryServices.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => scrollToService(s.id)}
+                className={`text-xs px-4 py-2 rounded-full border transition cursor-pointer ${
+                  selectedServiceId === s.id
+                    ? "bg-gold text-charcoal border-gold font-bold shadow-md"
+                    : "bg-charcoal/80 text-cream/80 border-gold/30 hover:border-gold hover:text-gold"
+                }`}
+              >
+                {s.name}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -181,17 +220,22 @@ function ServicesPage() {
       <section className="py-16 sm:py-24 bg-charcoal">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-12 sm:mb-16 text-center">
-            <SectionLabel>Primary Services</SectionLabel>
+            <SectionLabel>Signature Packages</SectionLabel>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
-              Signature Bridal Services
+              Explore Our Bridal Services
             </h2>
           </div>
 
           <div className="flex flex-col gap-16 sm:gap-24">
             {primaryServices.map((service, idx) => (
               <div
+                id={service.id}
                 key={service.name}
-                className={`grid items-center gap-8 sm:gap-12 grid-cols-1 lg:grid-cols-12 ${idx % 2 === 1 ? "lg:direction-rtl" : ""}`}
+                className={`grid items-center gap-8 sm:gap-12 grid-cols-1 lg:grid-cols-12 scroll-mt-28 p-6 sm:p-8 rounded-3xl transition-all duration-300 ${
+                  selectedServiceId === service.id
+                    ? "bg-charcoal2/90 border border-gold/40 shadow-2xl"
+                    : "glass-card-dark border border-gold/20"
+                }`}
               >
                 {/* Photo Side */}
                 <div className={`lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
@@ -280,47 +324,44 @@ function ServicesPage() {
 
       <GoldDivider />
 
-      {/* ══ OTHER SERVICES ══ */}
+      {/* ══ OCCASION SERVICES (Same as Portfolio) ══ */}
       <section className="py-16 sm:py-24 bg-charcoal2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-10 sm:mb-14 text-center">
-            <SectionLabel>Additional Offerings</SectionLabel>
+            <SectionLabel>Occasion Styling</SectionLabel>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
-              Other Services
+              Services by Wedding Occasion
             </h2>
             <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-xs sm:text-sm text-cream/75">
-              Available alongside bridal bookings or as standalone party styling.
+              Explore bespoke styling tailored specifically for each ceremony of your wedding festivities.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {otherServices.map((s) => (
-              <div key={s.name} className="flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-sm hover:border-gold hover:shadow-xl transition">
-                {s.img ? (
-                  <div className="aspect-[4/3] overflow-hidden bg-charcoal">
-                    <img src={s.img} alt={s.name} loading="lazy" className="h-full w-full object-cover object-center" />
-                  </div>
-                ) : (
-                  <div className="aspect-[4/3] overflow-hidden bg-charcoal flex items-center justify-center border-b border-gold/15">
-                    <span className="text-gold/40 font-serif text-sm italic">Image Coming Soon</span>
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-goldlight">{s.name}</h3>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-cream/75">{s.desc}</p>
-                  <div className="mt-auto pt-5">
-                    <a href="/#contact" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gold hover:underline transition">
-                      Enquire for Rates →
-                    </a>
-                  </div>
+              <a
+                key={s.name}
+                href={s.link}
+                className="group flex flex-col p-6 sm:p-7 rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-sm hover:border-gold hover:-translate-y-1 hover:shadow-xl transition duration-300"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-gold font-serif text-lg">✦</span>
                 </div>
-              </div>
+                <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-ivory group-hover:text-gold transition">
+                  {s.name}
+                </h3>
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-cream/75 flex-1">
+                  {s.desc}
+                </p>
+                <div className="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs font-bold text-gold">
+                  <span>View in Portfolio →</span>
+                  <span className="text-cream/50 group-hover:translate-x-1 transition">✦</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
       </section>
-
-      <GoldDivider />
 
       {/* ══ CTA ══ */}
       <section className="py-16 sm:py-24 bg-charcoal">
@@ -336,7 +377,7 @@ function ServicesPage() {
               Book an Appointment ✦
             </a>
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-outline text-xs sm:text-sm py-2.5 px-5 sm:py-3 sm:px-7">
-              WhatsApp Us 💬
+              WhatsApp Us
             </a>
           </div>
         </div>
@@ -351,12 +392,12 @@ function ServicesPage() {
                 <img src="/logo.png" alt="Kishaley" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain" />
                 <span className="font-serif text-base sm:text-lg font-bold text-goldlight">Kishaley Makeup Artist</span>
               </div>
-              <p className="text-xs leading-relaxed text-cream/50">Since 2014. 2000+ happy brides. Available all over India 🇮🇳</p>
+              <p className="text-xs leading-relaxed text-cream/60">Since 2014. 2000+ happy brides. Available all over India.</p>
             </div>
             <div>
               <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-gold/80">Quick Links</p>
               <ul className="flex flex-col gap-2 text-xs sm:text-sm text-cream/70">
-                {[["/","Home"],["/#about","About"],["/services","Services"],["/#portfolio","Portfolio"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
+                {[["/","Home"],["/#about","About"],["/services","Services"],["/portfolio","Portfolio"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
                   <li key={h}><a href={h} className="hover:text-gold transition font-medium">{l}</a></li>
                 ))}
               </ul>
@@ -364,11 +405,11 @@ function ServicesPage() {
             <div className="sm:col-span-2 md:col-span-1">
               <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-gold/80">Get In Touch</p>
               <div className="flex flex-col gap-2.5 sm:gap-3 text-xs sm:text-sm text-cream/70">
-                <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="hover:text-gold transition font-semibold">◎ @kishaley_makeupartist</a>
-                <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">☎ {PHONE1}</a>
-                <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">☎ {PHONE2}</a>
-                <a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-gold transition font-semibold text-green-400">💬 WhatsApp 24/7</a>
-                <p>📍 Pondicherry, Tamil Nadu</p>
+                <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="hover:text-gold transition font-semibold">@kishaley_makeupartist</a>
+                <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">{PHONE1}</a>
+                <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">{PHONE2}</a>
+                <a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-gold transition font-medium">WhatsApp 24/7</a>
+                <p className="text-cream/60">Pondicherry, Tamil Nadu</p>
               </div>
             </div>
           </div>
