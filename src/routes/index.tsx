@@ -4,16 +4,16 @@ import type { ReactNode } from "react";
 
 /* ── Clear authentic photos from studio PDF ── */
 import aboutArtist      from "@/assets/about-artist.jpg";
-import dewyFinish       from "@/assets/dewy-bride-clean.jpg";
-import hdLook           from "@/assets/hd-look.jpg";
-import glassSkin        from "@/assets/glass-skin-clean.jpg";
-import heroBackdrop     from "@/assets/glass-skin-hero.jpg";
+import dewyService     from "@/assets/dewy-service.jpg";
+import glassService    from "@/assets/glass-service.jpg";
+import pinkSareeHero   from "@/assets/pink-saree-hero.jpg";
+import homeHdLook      from "@/assets/home-hd-look.png";
+import homeAirbrushLook from "@/assets/home-airbrush-look.jpg";
 import airbrush1       from "@/assets/airbrush-1.jpg";
 import glass1          from "@/assets/glass-1.jpg";
 import hd1             from "@/assets/hd-1.jpg";
 import hd2             from "@/assets/hd-2.jpg";
 import cosmeticsFlatlay from "@/assets/cosmetics-flatlay.jpg";
-import airbrushHome    from "@/assets/airbrush-home.jpg";
 
 /* ─────────────────────────────── Route ─── */
 export const Route = createFileRoute("/")({
@@ -67,7 +67,7 @@ const primaryServices = [
     includes: ["Makeup", "Hairstyle", "Draping"],
     price: "₹8,000",
     priceNote: "per session",
-    img: dewyFinish,
+    img: dewyService,
     alt: "Dewy finish bridal makeup by Kishaley",
   },
   {
@@ -77,7 +77,7 @@ const primaryServices = [
     includes: ["Makeup", "Hairstyle", "Draping"],
     price: "₹12,000",
     priceNote: "per session",
-    img: hdLook,
+    img: homeHdLook,
     alt: "High definition bridal makeup by Kishaley",
   },
   {
@@ -87,7 +87,7 @@ const primaryServices = [
     includes: ["Makeup", "Hairstyle", "Draping"],
     price: "₹15,000",
     priceNote: "per session",
-    img: glassSkin,
+    img: glassService,
     alt: "Glass skin signature bridal makeup by Kishaley",
   },
   {
@@ -97,7 +97,7 @@ const primaryServices = [
     includes: ["Makeup", "Hairstyle", "Draping"],
     price: "₹20,000",
     priceNote: "per session",
-    img: airbrushHome,
+    img: homeAirbrushLook,
     alt: "Airbrush makeup by Kishaley",
   },
 ];
@@ -120,27 +120,27 @@ type PortfolioCategory = (typeof portfolioCategories)[number]["id"];
 
 const weddingPhotos = [
   {
-    src: airbrush1,
-    alt: "Airbrush bridal makeup by Kishaley",
-    title: "Airbrush Bridal Look",
+    src: dewyService,
+    alt: "Dewy finish bridal makeup by Kishaley",
+    title: "Dewy Finish Look",
     tag: "Signature Wedding",
   },
   {
-    src: glass1,
-    alt: "Glass skin bridal look by Kishaley",
-    title: "Glass Skin Signature Bride",
-    tag: "Signature Wedding",
-  },
-  {
-    src: hd1,
+    src: homeHdLook,
     alt: "HD bridal makeup finish by Kishaley",
     title: "High Definition Bridal Look",
     tag: "Signature Wedding",
   },
   {
-    src: hd2,
-    alt: "HD bridal close up by Kishaley",
-    title: "HD Bridal Artistry",
+    src: glassService,
+    alt: "Glass skin bridal look by Kishaley",
+    title: "Glass Skin Signature Bride",
+    tag: "Signature Wedding",
+  },
+  {
+    src: homeAirbrushLook,
+    alt: "Airbrush bridal makeup by Kishaley",
+    title: "Airbrush Bridal Artistry",
     tag: "Signature Wedding",
   },
 ];
@@ -290,19 +290,19 @@ function Index() {
         )}
       </header>
 
-      {/* ══ SECTION 1: HERO (Dynamic & Responsive Typography) ══ */}
-      <section className="relative min-h-[90vh] sm:min-h-screen overflow-hidden pt-18 sm:pt-20 flex items-center bg-charcoal">
-        {/* Backdrop Image — Single luxury bridal photo with black transparent screen */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
+      <section className="relative flex min-h-[calc(100vh-4rem)] flex-col justify-center overflow-hidden bg-charcoal">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
           <img
-            src={heroBackdrop}
-            alt="Kishaley Bridal Makeup Specialist"
-            className="h-full w-full object-cover object-[70%_20%] sm:object-[80%_center] opacity-60 brightness-95"
+            src={pinkSareeHero}
+            alt="Jayakala Bridal Makeup - Pink Saree Bride"
+            className="h-full w-full object-cover object-top sm:object-center opacity-75 brightness-95"
           />
-          {/* Black transparent screen overlay */}
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent sm:w-3/4" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-black/60" />
+          {/* Subtle balanced overlay to ensure clear text legibility while showing the full image */}
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent sm:w-2/3" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-black/30" />
         </div>
 
         {/* Text Content */}
@@ -527,108 +527,57 @@ function Index() {
         </div>
       </section>
 
-      {/* ══ SECTION 5: PORTFOLIO (Curated Looks by Occasion) ══ */}
+      {/* ══ SECTION 5: PORTFOLIO (Options for Bridal Transformations) ══ */}
       <section id="portfolio" className="py-16 sm:py-24 bg-charcoal text-cream">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-8 sm:mb-12 text-center max-w-2xl mx-auto">
+          <div className="mb-10 sm:mb-14 text-center max-w-2xl mx-auto">
             <SectionLabelDark>The Portfolio</SectionLabelDark>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
               Signature Looks by Occasion
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-cream/75">
-              Explore our handcrafted transformations. Click on any category below to view styles.
+              Select an option below to explore our bridal transformations, or visit our dedicated Portfolio page.
             </p>
           </div>
 
-          {/* Category Filter Tabs */}
-          <div className="flex justify-center items-center gap-2.5 sm:gap-4 mb-8 sm:mb-12 flex-wrap">
-            {portfolioCategories.map((cat) => {
-              const isActive = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? "bg-gold text-charcoal shadow-lg shadow-gold/20 scale-105"
-                      : "bg-charcoal2 text-cream/75 border border-gold/25 hover:border-gold hover:text-gold"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
+          {/* Options Grid */}
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: "Muhurtham Makeup", desc: "Silk saree & temple jewelry bridal look", tag: "Option 01" },
+              { title: "Reception Makeup", desc: "Glamorous evening lehenga & saree look", tag: "Option 02" },
+              { title: "Engagement Makeup", desc: "Radiant skin prep & romantic soft glam", tag: "Option 03" },
+              { title: "Christian Wedding", desc: "Ethereal white gown & veil bridal look", tag: "Option 04" },
+            ].map((opt) => (
+              <a
+                key={opt.title}
+                href="/portfolio"
+                className="group flex flex-col p-6 sm:p-7 rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 hover:border-gold hover:-translate-y-1 transition duration-300 shadow-md"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-gold font-serif text-base">✦</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose bg-rose/10 px-2.5 py-0.5 rounded-full border border-rose/20">
+                    {opt.tag}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-ivory group-hover:text-gold transition">
+                  {opt.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-cream/75 leading-relaxed flex-1">
+                  {opt.desc}
+                </p>
+                <div className="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs font-bold text-gold">
+                  <span>View Category →</span>
+                  <span className="text-cream/50 group-hover:translate-x-1 transition">✦</span>
+                </div>
+              </a>
+            ))}
           </div>
 
-          {/* Gallery View: Wedding Looks */}
-          {activeCategory === "wedding" && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
-              {weddingPhotos.map((photo, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedPhoto(photo)}
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg bg-charcoal2 block text-left cursor-pointer border border-transparent hover:border-gold/40 transition"
-                  aria-label={`Open ${photo.title} photo`}
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="aspect-[3/4] w-full object-cover object-top transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3 sm:p-4">
-                    <span className="text-[10px] text-gold font-bold tracking-wider uppercase">{photo.tag}</span>
-                    <p className="text-white text-xs sm:text-sm font-serif font-bold drop-shadow">{photo.title}</p>
-                    <span className="mt-1 text-[10px] text-cream/80">Click to view ✦</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Gallery View: Party Looks (Space Reserved) */}
-          {activeCategory === "party" && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
-              {partyPlaceholders.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group relative flex aspect-[3/4] flex-col items-center justify-center rounded-xl sm:rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal2/60 p-4 text-center transition hover:border-gold/60 hover:bg-charcoal2/80"
-                >
-                  <div className="mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gold/10 text-gold group-hover:scale-110 transition">
-                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
-                    </svg>
-                  </div>
-                  <p className="font-serif text-sm sm:text-base font-bold text-ivory mb-1">{item.title}</p>
-                  <span className="text-[10px] sm:text-xs text-gold/70 font-semibold">{item.tag}</span>
-                  <p className="mt-2 text-[10px] text-cream/50">Space reserved for party looks</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Gallery View: Other Looks (Space Reserved) */}
-          {activeCategory === "other" && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 animate-fade-in">
-              {otherPlaceholders.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group relative flex aspect-[3/4] flex-col items-center justify-center rounded-xl sm:rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal2/60 p-4 text-center transition hover:border-gold/60 hover:bg-charcoal2/80"
-                >
-                  <div className="mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gold/10 text-gold group-hover:scale-110 transition">
-                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
-                    </svg>
-                  </div>
-                  <p className="font-serif text-sm sm:text-base font-bold text-ivory mb-1">{item.title}</p>
-                  <span className="text-[10px] sm:text-xs text-gold/70 font-semibold">{item.tag}</span>
-                  <p className="mt-2 text-[10px] text-cream/50">Space reserved for extra looks</p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="mt-10 sm:mt-12 text-center">
+            <a href="/portfolio" className="btn-primary text-xs sm:text-sm py-3 px-8 inline-flex items-center gap-2">
+              Explore Full Portfolio Page ✦
+            </a>
+          </div>
 
           {/* Modal Lightbox for viewing photos */}
           {selectedPhoto && (

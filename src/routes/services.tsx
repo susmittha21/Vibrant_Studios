@@ -7,9 +7,10 @@ import glassSkin     from "@/assets/glass-skin-clean.jpg";
 import airbrush1     from "@/assets/airbrush-1.jpg";
 import airbrush2     from "@/assets/airbrush-2.jpg";
 import airbrush3     from "@/assets/airbrush-3.jpg";
+import dewy1         from "@/assets/dewy-1.jpg";
+import dewy2         from "@/assets/dewy-2.jpg";
 import hd1           from "@/assets/hd-1.jpg";
 import hd2           from "@/assets/hd-2.jpg";
-import hd3           from "@/assets/hd-3.jpg";
 import glass1        from "@/assets/glass-1.jpg";
 import glass2        from "@/assets/glass-2.jpg";
 
@@ -61,7 +62,8 @@ const primaryServices = [
     includes: ["HD Bridal Makeup", "Hairstyle & Florals", "Saree / Dupatta Draping"],
     price: "₹8,000",
     priceNote: "per session",
-    img: null,
+    img: dewy1,
+    gallery: [dewy1, dewy2],
     alt: "Dewy finish bridal look by Kishaley",
   },
   {
@@ -73,7 +75,7 @@ const primaryServices = [
     price: "₹12,000",
     priceNote: "per session",
     img: hd1,
-    gallery: [hd1, hd2, hd3],
+    gallery: [hd1, hd2],
     alt: "High definition HD bridal look by Kishaley",
   },
   {
