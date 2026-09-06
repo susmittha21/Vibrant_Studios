@@ -292,54 +292,53 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex flex-col items-center justify-end overflow-hidden bg-charcoal pt-32 pb-10 sm:pt-40 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
+      <section className="relative flex flex-col items-start justify-end overflow-hidden bg-charcoal pt-32 pb-10 sm:pt-40 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
         {/* Background Image Container — Visible on all devices */}
         <div className="absolute inset-0 z-0">
           <img
             src={pinkSareeHero}
             alt="Jayakala Bridal Makeup - Vibrant Bridal Studios"
-            className="h-full w-full object-cover object-[center_15%] sm:object-center opacity-90 brightness-105"
+            className="h-full w-full object-cover object-[center_15%] sm:object-[70%_center] opacity-90 brightness-105"
           />
-          {/* Bottom-heavy gradient so the face at the top is clearly visible, while text at the bottom is highly legible */}
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/10 via-charcoal/50 to-charcoal" />
+          {/* Gradients to darken the left side and bottom for left-aligned text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/60 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent" />
         </div>
 
-        {/* Bottom-Aligned Hero Content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-end px-4 sm:px-6 text-center mt-auto">
-          <div className="inline-flex items-center gap-2 rounded-full bg-charcoal/70 border border-gold/40 px-4 py-1.5 mb-4 sm:mb-5 shadow-lg backdrop-blur-md">
-            <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
+        {/* Left-Aligned Hero Content */}
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start justify-end px-4 sm:px-6 text-left mt-auto">
+          <div className="flex items-center gap-4 mb-4 sm:mb-6">
+            <span className="h-px w-8 sm:w-12 bg-gold"></span>
             <p className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-goldlight">
               Pondicherry · Kishaley Makeup Artist · Since 2014
             </p>
-            <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-ivory tracking-tight drop-shadow-md">
-            Vibrant <span className="shimmer not-italic">Bridal Studios</span>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-ivory tracking-tight max-w-3xl">
+            Vibrant <span className="shimmer not-italic text-goldlight">Bridal Studios</span>
           </h1>
 
-          <p className="mt-4 sm:mt-5 text-base sm:text-xl md:text-2xl font-serif text-gold font-semibold tracking-wide">
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl md:text-2xl font-serif text-gold font-semibold tracking-wide">
             Bridal &amp; Skin Finish Makeup Specialist
           </p>
 
-          <p className="mt-4 max-w-2xl text-xs sm:text-base text-cream/90 leading-relaxed mx-auto">
+          <p className="mt-4 max-w-xl text-sm sm:text-base text-cream/90 leading-relaxed">
             Dewy Finish, High Definition, Glass Skin Signature &amp; Airbrush artistry with
             couture hairstyling and precision saree draping — by Jayakala.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-            <a href="#contact" className="btn-primary text-xs sm:text-sm py-3 px-7 sm:px-8 shadow-xl">
-              Reserve Your Date ✦
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto">
+            <a href="#contact" className="btn-primary text-xs sm:text-sm py-3.5 px-8 sm:px-10 shadow-xl text-center">
+              Reserve Your Date &rarr;
             </a>
-            <a href="#services" className="btn-outline text-xs sm:text-sm py-3 px-7 sm:px-8">
+            <a href="#services" className="btn-outline text-xs sm:text-sm py-3.5 px-8 sm:px-10 text-center">
               Explore Services
             </a>
           </div>
 
-          <div className="mt-10 sm:mt-14 grid max-w-md grid-cols-3 gap-6 sm:gap-10 border-t border-gold/25 pt-6 sm:pt-8 w-full">
+          <div className="mt-12 sm:mt-16 flex flex-wrap gap-8 sm:gap-12 border-t border-gold/25 pt-6 sm:pt-8 max-w-2xl w-full">
             {stats.map((s) => (
-              <div key={s.label} className="text-center">
+              <div key={s.label} className="text-left">
                 <p className="font-serif text-2xl sm:text-3xl font-bold text-gold">{s.value}</p>
                 <p className="mt-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-cream/70">{s.label}</p>
               </div>
@@ -348,7 +347,7 @@ function Index() {
         </div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-1 text-gold/70">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-1 text-gold/70">
           <span className="text-[10px] tracking-widest uppercase font-semibold">Scroll</span>
           <span className="animate-bounce text-sm">↓</span>
         </div>
