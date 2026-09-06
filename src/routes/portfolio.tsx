@@ -1,14 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef } from "react";
 
-import dewy1 from "@/assets/dewy-1.jpg";
-import dewy2 from "@/assets/dewy-2.jpg";
 import hd1 from "@/assets/hd-1.jpg";
 import hd2 from "@/assets/hd-2.jpg";
-import glass1 from "@/assets/glass-1.jpg";
-import glass2 from "@/assets/glass-2.jpg";
+import muhurtham1 from "@/assets/muhurtham-1.jpeg";
+import muhurtham2 from "@/assets/muhurtham-2.jpeg";
+import muhurtham3 from "@/assets/muthurtham-3.jpeg";
+import muhurtham4 from "@/assets/muhurtham-4.jpeg";
+import muhurtham5 from "@/assets/muhurtham-5.jpeg";
+import muhurtham6 from "@/assets/muhurtham-6.jpeg";
+import muhurtham7 from "@/assets/muhurtham-7.jpeg";
+import muhurtham8 from "@/assets/muhurtham-8.jpeg";
+import reception1 from "@/assets/reception-1.jpg";
+import reception2 from "@/assets/reception-2.jpg";
+import reception3 from "@/assets/reception-3.jpg";
+import reception4 from "@/assets/reception-4.jpg";
+import reception5 from "@/assets/reception-5.jpg";
+import reception6 from "@/assets/reception-6.jpeg";
+import reception7 from "@/assets/reception-7.jpeg";
+import engagement1 from "@/assets/engagemnet-1.jpeg";
+import engagement2 from "@/assets/engagement-2.jpeg";
+import engagement3 from "@/assets/engagment-3.jpeg";
+import engagement4 from "@/assets/engagement-4.PNG";
+import christianWedding1 from "@/assets/christian-wedding-1.jpeg";
+import christianWedding2 from "@/assets/christian-wedding-2.jpeg";
+import christianWedding3 from "@/assets/christian-wedding-3.jpeg";
 import airbrush1 from "@/assets/airbrush-1.jpg";
 import airbrush2 from "@/assets/airbrush-2.jpg";
+import airbrush3 from "@/assets/airbrush-3.jpg";
 
 export const Route = createFileRoute("/portfolio")({
   component: PortfolioPage,
@@ -30,28 +49,27 @@ const portfolioOptions = [
     id: "muhurtham",
     title: "Muhurtham Makeup",
     desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur.",
-    photos: [dewy1, dewy2],
+    photos: [muhurtham1, muhurtham2, muhurtham3, muhurtham4, muhurtham5, muhurtham6, muhurtham7, muhurtham8],
     journalNote: "Artistry Insight: Muhurtham ceremonies demand lightweight yet sweat-resistant skin prep under intense ritual mandap lighting. Rich gold jewelry & vibrant silk draping are balanced with warm glowing tones.",
   },
   {
     id: "reception",
     title: "Reception Makeup",
     desc: "Glamorous evening looks, rich lehengas & modern bridal elegance.",
-    photos: [hd1, hd2],
-    journalNote: "Artistry Insight: Reception glamour focuses on high-definition 4K camera diffusion and dramatic eye artistry that holds up under stage spotlights and long evening celebrations.",
+    photos: [reception1, reception2, reception3, reception4, reception5, hd1, hd2, reception6, reception7],
   },
   {
     id: "engagement",
     title: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones for pre-wedding celebrations.",
-    photos: [glass1, glass2],
+    photos: [engagement1, engagement2, engagement3, engagement4],
     journalNote: "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
   },
   {
     id: "christian-wedding",
     title: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals & veil draping.",
-    photos: [airbrush1, airbrush2],
+    photos: [christianWedding1, christianWedding2, christianWedding3, airbrush1, airbrush2, airbrush3],
     journalNote: "Artistry Insight: White bridal gowns require precise color-matching and luminous skin finish that prevents flashback under flash photography while creating an ethereal, fresh morning glow.",
   },
 ];
@@ -173,27 +191,23 @@ function PortfolioPage() {
                 {activeOption.desc}
               </p>
 
-              {/* Small Journal Text Note */}
-              <div className="mt-6 mb-8 mx-auto max-w-2xl text-left bg-charcoal/80 p-5 rounded-2xl border border-gold/20 shadow-md">
-                <div className="flex items-center gap-2 mb-2 text-rose text-xs font-bold uppercase tracking-wider">
-                  <span>✦ Journal Note from Jayakala</span>
-                </div>
-                <p className="text-xs sm:text-sm leading-relaxed text-cream/90 italic">
-                  "{activeOption.journalNote}"
-                </p>
-              </div>
-
               {/* Image Grid displaying loaded photos */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {activeOption.photos.map((imgSrc, idx) => (
                   <div
                     key={idx}
-                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
+                    className={`group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1 ${
+                      activeOption.id === "reception" ? "" : "aspect-[3/4]"
+                    }`}
                   >
                     <img
                       src={imgSrc}
                       alt={`${activeOption.title} preview ${idx + 1}`}
-                      className="h-full w-full rounded-xl object-cover object-top transition duration-500 group-hover:scale-105"
+                      className={`w-full rounded-xl transition duration-500 group-hover:scale-105 ${
+                        activeOption.id === "reception"
+                          ? "h-auto object-contain"
+                          : "h-full object-cover object-top"
+                      }`}
                     />
                   </div>
                 ))}

@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-import glass1          from "@/assets/glass-1.jpg";
-import homeHdLook      from "@/assets/home-hd-look.png";
-import dewy1           from "@/assets/dewy-1.jpg";
-import airbrushNew1    from "@/assets/airbrush-new-1.jpg";
+import journalMakeupBrushes from "@/assets/journal-makeup-brushes.jpg";
+import journalSkincare from "@/assets/journal-skincare.jpg";
+import journalBeautyTools from "@/assets/journal-beauty-tools.jpg";
+import journalFlowers from "@/assets/journal-flowers.jpg";
 
 export const Route = createFileRoute("/journal")({
   component: JournalPage,
@@ -66,8 +66,8 @@ const articles: Article[] = [
     readTime: "4 min read",
     summary:
       "Understanding the subtle difference between luminous hydration and pore-perfect velvety glass skin — and how coastal humidity & venue lighting guide the right choice.",
-    img: glass1,
-    alt: "Dewy and glass skin bridal makeup look by Kishaley",
+    img: journalMakeupBrushes,
+    alt: "Makeup brushes and cosmetics arranged for beauty preparation",
     imgPos: "object-center",
     content: [
       "When planning your wedding look, choosing between a Dewy Finish and Glass Skin comes down to skin type, climate, and the ceremony setting.",
@@ -88,8 +88,8 @@ const articles: Article[] = [
     readTime: "5 min read",
     summary:
       "Modern cinematic 4K camera lenses capture every micro-detail. Discover how high-definition light-scattering pigments prevent cakey buildup under bright stage lighting.",
-    img: homeHdLook,
-    alt: "High definition bridal makeup by Kishaley",
+    img: journalBeautyTools,
+    alt: "Beauty products arranged for a makeup routine",
     imgPos: "object-[center_20%]",
     content: [
       "Traditional bridal makeup often relied on thick layers of pancake foundation to cover blemishes. However, with today's ultra-high-definition 4K lenses and cinema-grade lighting, heavy makeup immediately appears powdery and unnatural.",
@@ -109,8 +109,8 @@ const articles: Article[] = [
     readTime: "6 min read",
     summary:
       "Flawless makeup always begins with healthy, well-prepped skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation, and routine care leading up to your wedding.",
-    img: dewy1,
-    alt: "Bridal skin preparation look by Kishaley",
+    img: journalSkincare,
+    alt: "Skincare moisturizer prepared for a beauty routine",
     imgPos: "object-[center_20%]",
     content: [
       "Your wedding makeup is only as good as the canvas underneath. Starting your preparation 30 to 45 days prior ensures your skin is plump, hydrated, and receptive on your big morning.",
@@ -131,8 +131,8 @@ const articles: Article[] = [
     readTime: "3 min read",
     summary:
       "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance and all-day comfort.",
-    img: airbrushNew1,
-    alt: "Airbrush bridal makeup by Kishaley",
+    img: journalFlowers,
+    alt: "Fresh flowers in a bright outdoor garden",
     imgPos: "object-[center_20%]",
     content: [
       "South Indian weddings can be demanding: intense rituals around holy fire (Agni), heavy silk sarees, emotional moments, and high coastal humidity.",
@@ -227,7 +227,9 @@ function JournalPage() {
                     src={a.img}
                     alt={a.alt}
                     loading="lazy"
-                    className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${a.imgPos || "object-[center_top]"}`}
+                    className={`h-full w-full transition duration-500 group-hover:scale-105 ${
+                      a.id === "airbrush-longevity" ? "object-contain" : "object-cover"
+                    } ${a.imgPos || "object-[center_top]"}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
                 </div>

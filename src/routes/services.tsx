@@ -57,7 +57,6 @@ const primaryServices = [
     num: "01",
     name: "Dewy Finish Look",
     tagline: "A dewy finish, a radiant, luminous look that gives the appearance of a healthy, glowing complexion.",
-    details: "Crafted using lightweight, hydrating formulas and customized skin prep, this look creates an ethereal lit-from-within glow that looks natural and fresh throughout traditional morning ceremonies.",
     includes: ["HD Bridal Makeup", "Hairstyle & Florals", "Saree / Dupatta Draping"],
     price: "₹8,000",
     priceNote: "per session",
@@ -70,7 +69,6 @@ const primaryServices = [
     num: "02",
     name: "High Definition Look",
     tagline: "HD makeup is designed to enhance a bride's features & make them stand out in photos and videos.",
-    details: "Engineered specifically for 4K video and photography, high-definition makeup diffuses light across the skin, giving full seamless coverage without any cakey buildup under intense ceremony lighting.",
     includes: ["HD Bridal Makeup", "Hairstyle & Styling", "Saree / Lehanga Draping"],
     price: "₹12,000",
     priceNote: "per session",
@@ -83,7 +81,6 @@ const primaryServices = [
     num: "03",
     name: "Glass Skin Signature",
     tagline: "My Signature Bridal Makeup Look gives you a very natural, yet very finished and polished look. This hides blemishes, giving it a smooth and velvety finish.",
-    details: "Jayakala's most requested signature look. Employs advanced skin perfecting rituals to create a velvety, porcelain glass-skin appearance that blurs imperfections while highlighting natural facial structure.",
     includes: ["Signature Glass Skin Makeup", "Couture Hair Styling", "Precision Saree Draping"],
     price: "₹15,000",
     priceNote: "per session",
@@ -96,7 +93,6 @@ const primaryServices = [
     num: "04",
     name: "Airbrush Makeup",
     tagline: "A weightless, seamless veil of micro-fine coverage that lasts from morning rites to the send-off.",
-    details: "Airbrush technique sprays micro-fine mist onto the skin, creating an ultra-durable, waterproof finish that withstands tears, humidity and long hours. Feels completely weightless on the skin.",
     includes: ["Airbrush Bridal Makeup", "Hairstyle & Florals", "Saree / Outfit Draping"],
     price: "₹20,000",
     priceNote: "based on event details",
@@ -292,7 +288,6 @@ function ServicesPage() {
                   <span className="font-serif text-4xl sm:text-6xl font-bold text-gold/25">{service.num}</span>
                   <h3 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-ivory">{service.name}</h3>
                   <p className="mt-3 sm:mt-4 text-sm sm:text-base font-medium text-cream/90 leading-relaxed">{service.tagline}</p>
-                  <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-cream/75 leading-relaxed">{service.details}</p>
 
                   <div className="mt-5 sm:mt-6">
                     <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-gold/70 mb-2">Package Includes:</p>
