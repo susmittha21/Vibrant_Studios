@@ -21,7 +21,6 @@ import reception7 from "@/assets/reception-7.jpeg";
 import engagement1 from "@/assets/engagemnet-1.jpeg";
 import engagement2 from "@/assets/engagement-2.jpeg";
 import engagement3 from "@/assets/engagment-3.jpeg";
-import engagement4 from "@/assets/engagement-4.PNG";
 import christianWedding1 from "@/assets/christian-wedding-1.jpeg";
 import christianWedding2 from "@/assets/christian-wedding-2.jpeg";
 import christianWedding3 from "@/assets/christian-wedding-3.jpeg";
@@ -62,7 +61,7 @@ const portfolioOptions = [
     id: "engagement",
     title: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones for pre-wedding celebrations.",
-    photos: [engagement1, engagement2, engagement3, engagement4],
+    photos: [engagement1, engagement2, engagement3],
     journalNote: "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
   },
   {
