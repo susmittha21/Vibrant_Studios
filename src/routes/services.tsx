@@ -3,9 +3,8 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 
 /* ── Clean Real Photos from Studio ── */
-import airbrush1     from "@/assets/airbrush-1.jpg";
-import airbrush2     from "@/assets/airbrush-2.jpg";
-import airbrush3     from "@/assets/airbrush-3.jpg";
+import airbrushNew1  from "@/assets/airbrush-new-1.jpg";
+import airbrushNew2  from "@/assets/airbrush-new-2.jpg";
 import dewy1         from "@/assets/dewy-1.jpg";
 import dewy2         from "@/assets/dewy-2.jpg";
 import hd1           from "@/assets/hd-1.jpg";
@@ -101,8 +100,8 @@ const primaryServices = [
     includes: ["Airbrush Bridal Makeup", "Hairstyle & Florals", "Saree / Outfit Draping"],
     price: "₹20,000",
     priceNote: "based on event details",
-    img: airbrush1,
-    gallery: [airbrush1, airbrush2, airbrush3],
+    img: airbrushNew1,
+    gallery: [airbrushNew1, airbrushNew2],
     alt: "Airbrush bridal makeup by Kishaley",
   },
 ];
@@ -130,7 +129,7 @@ const otherServices = [
   {
     name: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals, veil draping & luminous flash-proof photography finish.",
-    img: airbrush1,
+    img: airbrushNew1,
     link: "/portfolio",
   },
 ];

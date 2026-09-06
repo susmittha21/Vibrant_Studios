@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-import glass1         from "@/assets/glass-1.jpg";
-import homeHdLook     from "@/assets/home-hd-look.png";
-import aboutArtist    from "@/assets/about-artist-new.jpg";
-import airbrush1      from "@/assets/airbrush-1.jpg";
+import glass1          from "@/assets/glass-1.jpg";
+import homeHdLook      from "@/assets/home-hd-look.png";
+import dewy1           from "@/assets/dewy-1.jpg";
+import airbrushNew1    from "@/assets/airbrush-new-1.jpg";
 
 export const Route = createFileRoute("/journal")({
   component: JournalPage,
@@ -109,9 +109,9 @@ const articles: Article[] = [
     readTime: "6 min read",
     summary:
       "Flawless makeup always begins with healthy, well-prepped skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation, and routine care leading up to your wedding.",
-    img: aboutArtist,
-    alt: "Jayakala preparing bridal look on set in studio",
-    imgPos: "object-[center_25%]",
+    img: dewy1,
+    alt: "Bridal skin preparation look by Kishaley",
+    imgPos: "object-[center_20%]",
     content: [
       "Your wedding makeup is only as good as the canvas underneath. Starting your preparation 30 to 45 days prior ensures your skin is plump, hydrated, and receptive on your big morning.",
       "Rule #1: Commit to a gentle CTM (Cleansing, Toning, Moisturizing) routine twice daily. Incorporate hyaluronic acid serums on damp skin to boost intracellular hydration.",
@@ -131,9 +131,9 @@ const articles: Article[] = [
     readTime: "3 min read",
     summary:
       "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance and all-day comfort.",
-    img: airbrush1,
+    img: airbrushNew1,
     alt: "Airbrush bridal makeup by Kishaley",
-    imgPos: "object-[center_18%]",
+    imgPos: "object-[center_20%]",
     content: [
       "South Indian weddings can be demanding: intense rituals around holy fire (Agni), heavy silk sarees, emotional moments, and high coastal humidity.",
       "Airbrush makeup solves this by using compressed air to spray a micro-fine, atomized mist of silicone-based makeup onto the skin. Because it never rubs against the skin with brushes or sponges, it forms a cohesive, breathable, and waterproof shield.",
