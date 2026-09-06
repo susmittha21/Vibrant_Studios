@@ -114,9 +114,6 @@ function PortfolioPage() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-gold font-serif text-lg">✦</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-rose bg-rose/10 px-2.5 py-1 rounded-full border border-rose/20">
-                      Option
-                    </span>
                   </div>
 
                   <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-ivory">

@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 
 /* ── Clear authentic photos from studio PDF ── */
-import aboutArtist      from "@/assets/about-artist.jpg";
+import aboutArtist      from "@/assets/about-artist-new.jpg";
 import dewyService     from "@/assets/dewy-service.jpg";
 import glassService    from "@/assets/glass-service.jpg";
 import pinkSareeHero   from "@/assets/pink-saree-hero.jpg";
@@ -291,13 +291,13 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex min-h-[calc(100vh-4rem)] flex-col justify-center overflow-hidden bg-charcoal">
-        {/* Background Image Container */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative flex flex-col justify-center overflow-hidden bg-charcoal pt-20 sm:pt-24 pb-12 sm:pb-20">
+        {/* Background Image Container — Hidden on mobile as requested, shown on sm+ screens */}
+        <div className="absolute inset-0 z-0 hidden sm:block">
           <img
             src={pinkSareeHero}
             alt="Jayakala Bridal Makeup - Pink Saree Bride"
-            className="h-full w-full object-cover object-top sm:object-center opacity-75 brightness-95"
+            className="h-full w-full object-cover object-center opacity-75 brightness-95"
           />
           {/* Subtle balanced overlay to ensure clear text legibility while showing the full image */}
           <div className="absolute inset-0 bg-black/45" />
@@ -306,8 +306,11 @@ function Index() {
         </div>
 
         {/* Text Content */}
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-6xl flex-col justify-center px-4 sm:px-6 py-12 sm:py-16">
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col justify-center px-4 sm:px-6">
           <div className="max-w-2xl text-left">
+            <p className="mb-2 text-xs font-serif font-bold uppercase tracking-[0.25em] text-gold">
+              Vibrant Bridal Studios
+            </p>
             <SectionLabelDark>Pondicherry · Makeup Artist · Since 2014</SectionLabelDark>
 
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] text-ivory tracking-tight">
@@ -330,7 +333,7 @@ function Index() {
               </a>
             </div>
 
-            <div className="mt-10 sm:mt-12 grid max-w-sm grid-cols-3 gap-4 sm:gap-6 border-t border-gold/25 pt-6 sm:pt-8">
+            <div className="mt-8 sm:mt-12 grid max-w-sm grid-cols-3 gap-4 sm:gap-6 border-t border-gold/25 pt-6 sm:pt-8">
               {stats.map((s) => (
                 <div key={s.label}>
                   <p className="font-serif text-2xl sm:text-3xl font-bold text-gold">{s.value}</p>
@@ -543,10 +546,10 @@ function Index() {
           {/* Options Grid */}
           <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: "Muhurtham Makeup", desc: "Silk saree & temple jewelry bridal look", tag: "Option 01" },
-              { title: "Reception Makeup", desc: "Glamorous evening lehenga & saree look", tag: "Option 02" },
-              { title: "Engagement Makeup", desc: "Radiant skin prep & romantic soft glam", tag: "Option 03" },
-              { title: "Christian Wedding", desc: "Ethereal white gown & veil bridal look", tag: "Option 04" },
+              { title: "Muhurtham Makeup", desc: "Silk saree & temple jewelry bridal look" },
+              { title: "Reception Makeup", desc: "Glamorous evening lehenga & saree look" },
+              { title: "Engagement Makeup", desc: "Radiant skin prep & romantic soft glam" },
+              { title: "Christian Wedding", desc: "Ethereal white gown & veil bridal look" },
             ].map((opt) => (
               <a
                 key={opt.title}
@@ -555,9 +558,6 @@ function Index() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-gold font-serif text-base">✦</span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose bg-rose/10 px-2.5 py-0.5 rounded-full border border-rose/20">
-                    {opt.tag}
-                  </span>
                 </div>
                 <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-ivory group-hover:text-gold transition">
                   {opt.title}

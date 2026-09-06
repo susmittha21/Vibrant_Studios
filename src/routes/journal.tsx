@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
-// Images removed to leave space
+import dewyService     from "@/assets/dewy-service.jpg";
+import homeHdLook      from "@/assets/home-hd-look.png";
+import cosmeticsFlatlay from "@/assets/cosmetics-flatlay.jpg";
+import homeAirbrushLook from "@/assets/home-airbrush-look.jpg";
 
 export const Route = createFileRoute("/journal")({
   component: JournalPage,
@@ -48,8 +51,8 @@ const articles = [
     readTime: "4 min read",
     summary:
       "Understanding the subtle difference between luminous hydration and pore-perfect velvety glass skin — and how traditional venue lighting influences the choice.",
-    img: null,
-    alt: "Dewy bridal makeup look",
+    img: dewyService,
+    alt: "Dewy bridal makeup look by Kishaley",
   },
   {
     title: "Why HD Makeup is Crucial for 4K Wedding Videography",
@@ -57,8 +60,8 @@ const articles = [
     readTime: "5 min read",
     summary:
       "Modern cinematic cameras capture every micro-detail. Discover how high-definition light-scattering pigments keep your skin flawless on screen without cakey buildup.",
-    img: null,
-    alt: "High definition bridal makeup",
+    img: homeHdLook,
+    alt: "High definition bridal makeup by Kishaley",
   },
   {
     title: "The Ultimate 30-Day Bridal Skin Preparation Ritual",
@@ -66,7 +69,7 @@ const articles = [
     readTime: "6 min read",
     summary:
       "Great makeup begins with healthy skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation and stress management leading up to your wedding morning.",
-    img: null,
+    img: cosmeticsFlatlay,
     alt: "Cosmetics flatlay palette and beauty essentials",
   },
   {
@@ -75,7 +78,7 @@ const articles = [
     readTime: "3 min read",
     summary:
       "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance.",
-    img: null,
+    img: homeAirbrushLook,
     alt: "Airbrush bridal makeup by Kishaley",
   },
 ];
@@ -98,7 +101,7 @@ function JournalPage() {
               ["/",          "Home"],
               ["/#about",    "About"],
               ["/services",  "Services"],
-              ["/#portfolio","Portfolio"],
+              ["/portfolio", "Portfolio"],
               ["/journal",   "Journal"],
               ["/#contact",  "Contact"],
             ].map(([href, label]) => (
@@ -140,10 +143,25 @@ function JournalPage() {
             {articles.map((a) => (
               <article
                 key={a.title}
-                className="group flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-md hover:border-gold hover:shadow-xl transition"
+                className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 shadow-md hover:border-gold hover:shadow-xl transition duration-300"
               >
-                <div className="aspect-[16/10] overflow-hidden bg-charcoal2 flex items-center justify-center border-b border-gold/10">
-                  <span className="text-gold/30 font-serif text-sm italic">Image space reserved</span>
+                {/* Ribbon Symbol at Top Right */}
+                <div className="absolute top-0 right-4 z-20 flex flex-col items-center">
+                  <div className="bg-gradient-to-b from-amber-400 via-gold to-amber-600 text-charcoal shadow-lg px-2.5 py-1.5 rounded-b-sm font-bold text-[11px] tracking-wider uppercase flex items-center gap-1 border-x border-b border-gold/50">
+                    <svg className="w-3.5 h-4 fill-charcoal" viewBox="0 0 24 24">
+                      <path d="M5 3h14a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="relative aspect-[16/10] overflow-hidden bg-charcoal2 border-b border-gold/10">
+                  <img
+                    src={a.img}
+                    alt={a.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">
                   <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-rose">
