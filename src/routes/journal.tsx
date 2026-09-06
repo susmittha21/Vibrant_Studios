@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-import glassSkinHero   from "@/assets/glass-skin-hero.jpg";
-import homeHdLook      from "@/assets/home-hd-look.png";
-import aboutArtist     from "@/assets/about-artist-new.jpg";
-import homeAirbrushLook from "@/assets/home-airbrush-look.jpg";
+import glass1         from "@/assets/glass-1.jpg";
+import homeHdLook     from "@/assets/home-hd-look.png";
+import aboutArtist    from "@/assets/about-artist-new.jpg";
+import airbrush1      from "@/assets/airbrush-1.jpg";
 
 export const Route = createFileRoute("/journal")({
   component: JournalPage,
@@ -53,6 +53,7 @@ interface Article {
   summary: string;
   img: string;
   alt: string;
+  imgPos?: string;
   content: string[];
   keyTakeaways: string[];
 }
@@ -65,8 +66,9 @@ const articles: Article[] = [
     readTime: "4 min read",
     summary:
       "Understanding the subtle difference between luminous hydration and pore-perfect velvety glass skin — and how coastal humidity & venue lighting guide the right choice.",
-    img: glassSkinHero,
+    img: glass1,
     alt: "Dewy and glass skin bridal makeup look by Kishaley",
+    imgPos: "object-center",
     content: [
       "When planning your wedding look, choosing between a Dewy Finish and Glass Skin comes down to skin type, climate, and the ceremony setting.",
       "A Dewy Finish is all about lit-from-within radiance. We focus on intense moisture prep, lightweight illuminating bases, and soft cream highlights. It gives a youthful, fresh-faced glow that looks breathtaking in morning rituals and natural outdoor daylight.",
@@ -88,6 +90,7 @@ const articles: Article[] = [
       "Modern cinematic 4K camera lenses capture every micro-detail. Discover how high-definition light-scattering pigments prevent cakey buildup under bright stage lighting.",
     img: homeHdLook,
     alt: "High definition bridal makeup by Kishaley",
+    imgPos: "object-[center_20%]",
     content: [
       "Traditional bridal makeup often relied on thick layers of pancake foundation to cover blemishes. However, with today's ultra-high-definition 4K lenses and cinema-grade lighting, heavy makeup immediately appears powdery and unnatural.",
       "High Definition (HD) makeup uses micronized quartz, silica, and light-diffusing silicones. These ultra-fine pigments scatter light across your face, blurring imperfections while allowing natural skin texture to show through seamlessly.",
@@ -108,6 +111,7 @@ const articles: Article[] = [
       "Flawless makeup always begins with healthy, well-prepped skin. Jayakala's step-by-step checklist of hydration, gentle exfoliation, and routine care leading up to your wedding.",
     img: aboutArtist,
     alt: "Jayakala preparing bridal look on set in studio",
+    imgPos: "object-[center_25%]",
     content: [
       "Your wedding makeup is only as good as the canvas underneath. Starting your preparation 30 to 45 days prior ensures your skin is plump, hydrated, and receptive on your big morning.",
       "Rule #1: Commit to a gentle CTM (Cleansing, Toning, Moisturizing) routine twice daily. Incorporate hyaluronic acid serums on damp skin to boost intracellular hydration.",
@@ -127,8 +131,9 @@ const articles: Article[] = [
     readTime: "3 min read",
     summary:
       "From emotional morning pheras to humid evening receptions, learn why micro-fine airbrushing is the gold standard for endurance and all-day comfort.",
-    img: homeAirbrushLook,
+    img: airbrush1,
     alt: "Airbrush bridal makeup by Kishaley",
+    imgPos: "object-[center_18%]",
     content: [
       "South Indian weddings can be demanding: intense rituals around holy fire (Agni), heavy silk sarees, emotional moments, and high coastal humidity.",
       "Airbrush makeup solves this by using compressed air to spray a micro-fine, atomized mist of silicone-based makeup onto the skin. Because it never rubs against the skin with brushes or sponges, it forms a cohesive, breathable, and waterproof shield.",
@@ -222,7 +227,7 @@ function JournalPage() {
                     src={a.img}
                     alt={a.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover object-[center_top] transition duration-500 group-hover:scale-105"
+                    className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${a.imgPos || "object-[center_top]"}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
                 </div>
@@ -279,7 +284,7 @@ function JournalPage() {
             </h2>
 
             <div className="mt-5 mb-6 aspect-[16/10] overflow-hidden rounded-xl sm:rounded-2xl border border-gold/30">
-              <img src={activeArticle.img} alt={activeArticle.alt} className="w-full h-full object-cover object-[center_top]" />
+              <img src={activeArticle.img} alt={activeArticle.alt} className={`w-full h-full object-cover ${activeArticle.imgPos || "object-[center_top]"}`} />
             </div>
 
             <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-cream/85">

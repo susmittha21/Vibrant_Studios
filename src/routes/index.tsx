@@ -292,31 +292,30 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-charcoal pt-28 sm:pt-36 pb-20 sm:pb-28 min-h-[90vh]">
+      <section className="relative flex flex-col items-center justify-end overflow-hidden bg-charcoal pt-32 pb-10 sm:pt-40 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
         {/* Background Image Container — Visible on all devices */}
         <div className="absolute inset-0 z-0">
           <img
             src={pinkSareeHero}
             alt="Jayakala Bridal Makeup - Vibrant Bridal Studios"
-            className="h-full w-full object-cover object-center opacity-70 sm:opacity-75 brightness-95"
+            className="h-full w-full object-cover object-[center_15%] sm:object-center opacity-90 brightness-105"
           />
-          {/* Subtle balanced dark gradient overlay so the pink saree bride is clearly visible while text is 100% legible */}
-          <div className="absolute inset-0 bg-charcoal/60" />
-          <div className="absolute inset-0 bg-radial from-transparent via-charcoal/40 to-charcoal/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/80" />
+          {/* Bottom-heavy gradient so the face at the top is clearly visible, while text at the bottom is highly legible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/10 via-charcoal/50 to-charcoal" />
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent" />
         </div>
 
-        {/* Centered Hero Content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-center px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-charcoal/85 border border-gold/45 px-4 py-1.5 mb-5 shadow-lg backdrop-blur-sm">
+        {/* Bottom-Aligned Hero Content */}
+        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-end px-4 sm:px-6 text-center mt-auto">
+          <div className="inline-flex items-center gap-2 rounded-full bg-charcoal/70 border border-gold/40 px-4 py-1.5 mb-4 sm:mb-5 shadow-lg backdrop-blur-md">
             <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
-            <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-goldlight">
+            <p className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-goldlight">
               Pondicherry · Kishaley Makeup Artist · Since 2014
             </p>
             <span className="text-gold font-serif text-xs sm:text-sm">✦</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.08] text-ivory tracking-tight drop-shadow-md">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-ivory tracking-tight drop-shadow-md">
             Vibrant <span className="shimmer not-italic">Bridal Studios</span>
           </h1>
 
