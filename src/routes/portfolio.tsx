@@ -49,6 +49,7 @@ const portfolioOptions = [
     title: "Muhurtham Makeup",
     desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur.",
     photos: [muhurtham1, muhurtham2, muhurtham3, muhurtham4, muhurtham5, muhurtham6, muhurtham7, muhurtham8],
+    videos: ["/videos/airbrush-video1.mp4"],
     journalNote: "Artistry Insight: Muhurtham ceremonies demand lightweight yet sweat-resistant skin prep under intense ritual mandap lighting. Rich gold jewelry & vibrant silk draping are balanced with warm glowing tones.",
   },
   {
@@ -71,7 +72,6 @@ const portfolioOptions = [
     title: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals & veil draping.",
     photos: [christianWedding1, christianWedding2, christianWedding3, airbrush1, airbrush2, airbrush3],
-    videos: ["/videos/airbrush-video1.mp4"],
     journalNote: "Artistry Insight: White bridal gowns require precise color-matching and luminous skin finish that prevents flashback under flash photography while creating an ethereal, fresh morning glow.",
   },
 ];
