@@ -56,12 +56,14 @@ const portfolioOptions = [
     title: "Reception Makeup",
     desc: "Glamorous evening looks, rich lehengas & modern bridal elegance.",
     photos: [reception1, reception2, reception3, reception4, reception5, hd1, hd2, reception6, reception7],
+    videos: ["/videos/hdvideo1.mp4", "/videos/hdvideo2.mp4"],
   },
   {
     id: "engagement",
     title: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones for pre-wedding celebrations.",
     photos: [engagement1, engagement2, engagement3],
+    videos: ["/videos/glassskinvideo1.mp4"],
     journalNote: "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
   },
   {
@@ -69,6 +71,7 @@ const portfolioOptions = [
     title: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals & veil draping.",
     photos: [christianWedding1, christianWedding2, christianWedding3, airbrush1, airbrush2, airbrush3],
+    videos: ["/videos/airbrush-video1.mp4"],
     journalNote: "Artistry Insight: White bridal gowns require precise color-matching and luminous skin finish that prevents flashback under flash photography while creating an ethereal, fresh morning glow.",
   },
 ];
@@ -190,7 +193,7 @@ function PortfolioPage() {
                 {activeOption.desc}
               </p>
 
-              {/* Image Grid displaying loaded photos */}
+              {/* Gallery displaying loaded photos and videos */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {activeOption.photos.map((imgSrc, idx) => (
                   <div
@@ -210,7 +213,22 @@ function PortfolioPage() {
                     />
                   </div>
                 ))}
-                {[...Array(Math.max(0, 4 - activeOption.photos.length))].map((_, i) => (
+                {activeOption.videos?.map((videoSrc, idx) => (
+                  <div
+                    key={`video-${idx}`}
+                    className="group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
+                  >
+                    <video
+                      src={videoSrc}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      aria-label={`${activeOption.title} video preview ${idx + 1}`}
+                      className="aspect-[3/4] w-full rounded-xl object-cover object-top"
+                    />
+                  </div>
+                ))}
+                {[...Array(Math.max(0, 4 - activeOption.photos.length - (activeOption.videos?.length ?? 0)))].map((_, i) => (
                   <div
                     key={i}
                     className="aspect-[3/4] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal/60 p-4 text-center"
