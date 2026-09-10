@@ -5,12 +5,12 @@ import type { ReactNode } from "react";
 /* ── Clean Real Photos from Studio ── */
 import airbrushNew1  from "@/assets/airbrush-new-1.jpg";
 import airbrushNew2  from "@/assets/airbrush-new-2.jpg";
-import dewy1         from "@/assets/dewy-1.jpg";
+import dewyOne       from "@/assets/dewy=1.jpeg";
 import dewy2         from "@/assets/dewy-2.jpg";
 import hd1           from "@/assets/hd-1.jpg";
 import hd2           from "@/assets/hd-2.jpg";
 import glass1        from "@/assets/glass-1.jpg";
-import glass2        from "@/assets/glass-2.jpg";
+import glassTwo      from "@/assets/glass-2.jpeg";
 
 export const Route = createFileRoute("/services")({
   component: ServicesPage,
@@ -60,8 +60,8 @@ const primaryServices = [
     includes: ["Bridal Makeup", "Hairstyle", "Saree / Dupatta Draping"],
     price: "₹8,000",
     priceNote: "per session",
-    img: dewy1,
-    gallery: [dewy1, dewy2],
+    img: dewyOne,
+    gallery: [dewyOne, glassTwo],
     alt: "Dewy finish bridal look by Kishaley",
   },
   {
@@ -85,7 +85,7 @@ const primaryServices = [
     price: "₹15,000",
     priceNote: "per session",
     img: glass1,
-    gallery: [glass1, glass2],
+    gallery: [glass1, glassTwo],
     alt: "Glass skin signature bridal look by Kishaley",
   },
   {
@@ -108,7 +108,7 @@ const otherServices = [
     id: "muhurtham",
     name: "Muhurtham Makeup",
     desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur designed for ritual mandap lighting and long-lasting wear.",
-    img: dewy1,
+    img: dewyOne,
     link: "/portfolio#muhurtham",
   },
   {

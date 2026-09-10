@@ -443,18 +443,14 @@ function Index() {
                 className="group flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-dark transition-all duration-300 hover:border-gold hover:-translate-y-1 shadow-md"
               >
                 {/* Photo */}
-                <div className="relative overflow-hidden aspect-[4/5] bg-charcoal2">
+                <a href={`/portfolio#${service.name === "Dewy Finish Look" ? "muhurtham" : service.name === "High Definition Look" ? "reception" : service.name === "Glass Skin Signature" ? "engagement" : "christian-wedding"}`} className="block overflow-hidden bg-charcoal2">
                   <img
                     src={service.img}
-                    alt={service.alt}
+                    alt={`${service.alt} - View in portfolio`}
                     loading="lazy"
-                    className="h-full w-full object-cover object-[center_20%] transition duration-500 group-hover:scale-105"
+                    className="h-auto w-full object-contain transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs font-bold text-gold shadow-md">
-                    {service.id}
-                  </div>
-                </div>
-
+                </a>
                 {/* Details */}
                 <div className="flex flex-1 flex-col p-5 sm:p-6 min-h-[14rem]">
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-ivory min-h-[3.5rem]">{service.name}</h3>
@@ -551,15 +547,15 @@ function Index() {
 
           {/* Options Grid */}
           <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: "Muhurtham Makeup", desc: "Silk saree & temple jewelry bridal look" },
-              { title: "Reception Makeup", desc: "Glamorous evening lehenga & saree look" },
-              { title: "Engagement Makeup", desc: "Radiant skin prep & romantic soft glam" },
-              { title: "Christian Wedding", desc: "Ethereal white gown & veil bridal look" },
+              {[
+              { title: "Muhurtham Makeup", desc: "Silk saree & temple jewelry bridal look", id: "muhurtham" },
+              { title: "Reception Makeup", desc: "Glamorous evening lehenga & saree look", id: "reception" },
+              { title: "Engagement Makeup", desc: "Radiant skin prep & romantic soft glam", id: "engagement" },
+              { title: "Christian Wedding", desc: "Ethereal white gown & veil bridal look", id: "christian-wedding" },
             ].map((opt) => (
               <a
                 key={opt.title}
-                href="/portfolio"
+                href={`/portfolio#${opt.id}`}
                 className="group flex flex-col p-6 sm:p-7 rounded-2xl sm:rounded-3xl glass-card-dark border border-gold/25 hover:border-gold hover:-translate-y-1 transition duration-300 shadow-md"
               >
                 <div className="flex items-center justify-between">
