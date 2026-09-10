@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 /* ── Clear authentic photos from studio PDF ── */
 import aboutArtist      from "@/assets/about-artist-new.jpg";
+import dewyOne          from "@/assets/dewy=1.jpeg";
 import dewyService     from "@/assets/dewy-service.jpg";
 import glassService    from "@/assets/glass-service.jpg";
 import pinkSareeHero   from "@/assets/pink-saree-hero.jpg";
@@ -67,7 +68,7 @@ const primaryServices = [
     includes: ["Makeup", "Hairstyle", "Draping"],
     price: "₹8,000",
     priceNote: "per session",
-    img: dewyService,
+    img: dewyOne,
     alt: "Dewy finish bridal makeup by Kishaley",
   },
   {
@@ -485,10 +486,10 @@ function Index() {
             </p>
             <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {otherServices.map((s) => (
-                <div key={s.name} className="rounded-xl sm:rounded-2xl bg-charcoal/70 p-4 sm:p-5 border border-gold/20 shadow-xs hover:border-gold transition">
+                <a key={s.name} href={`/portfolio#${s.name === "Muhurtham Makeup" ? "muhurtham" : s.name === "Reception Makeup" ? "reception" : s.name === "Engagement Makeup" ? "engagement" : "christian-wedding"}`} className="rounded-xl sm:rounded-2xl bg-charcoal/70 p-4 sm:p-5 border border-gold/20 shadow-xs hover:border-gold transition">
                   <h4 className="font-serif text-lg sm:text-xl font-bold text-goldlight">{s.name}</h4>
                   <p className="mt-1.5 text-xs leading-relaxed text-cream/75">{s.desc}</p>
-                </div>
+                </a>
               ))}
             </div>
             <div className="mt-6 text-center">

@@ -34,13 +34,13 @@
 }
 
 @theme {
-  /* ── Neutral Slate & Ivory Palette ── */
+  /* ── Rich Luxury Rose Charcoal & Ivory Palette ── */
   --color-charcoal:   oklch(0.20 0.025 15);     /* Deep rose charcoal */
   --color-charcoal2:  oklch(0.24 0.028 15);     /* Elevated rose charcoal */
   --color-charcoal3:  oklch(0.28 0.030 15);     /* Surface rose charcoal */
   --color-ivory:      oklch(0.975 0.015 85);    /* Soft warm light ivory */
   --color-champagne:  oklch(0.935 0.025 80);    /* Champagne card/section */
-  --color-cream:      oklch(0.93  0.025 85);    /* Light text on slate bg */
+  --color-cream:      oklch(0.93  0.025 85);    /* Light text on rose charcoal */
   --color-wine:       oklch(0.26  0.09  38);    /* Deep warm chocolate-wine text for light sections */
   --color-winesoft:   oklch(0.36  0.08  38);
   --color-gold:       oklch(0.78  0.16  75);    /* Radiant polished gold */
