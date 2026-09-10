@@ -57,7 +57,7 @@ const primaryServices = [
     num: "01",
     name: "Dewy Finish Look",
     tagline: "A dewy finish, a radiant, luminous look that gives the appearance of a healthy, glowing complexion.",
-    includes: ["HD Bridal Makeup", "Hairstyle & Florals", "Saree / Dupatta Draping"],
+    includes: ["Bridal Makeup", "Hairstyle", "Saree / Dupatta Draping"],
     price: "₹8,000",
     priceNote: "per session",
     img: dewy1,
@@ -69,7 +69,7 @@ const primaryServices = [
     num: "02",
     name: "High Definition Look",
     tagline: "HD makeup is designed to enhance a bride's features & make them stand out in photos and videos.",
-    includes: ["HD Bridal Makeup", "Hairstyle & Styling", "Saree / Lehanga Draping"],
+    includes: ["HD Bridal Makeup", "Hairstyle", "Saree / Lehanga Draping"],
     price: "₹12,000",
     priceNote: "per session",
     img: hd1,
@@ -93,7 +93,7 @@ const primaryServices = [
     num: "04",
     name: "Airbrush Makeup",
     tagline: "A weightless, seamless veil of micro-fine coverage that lasts from morning rites to the send-off.",
-    includes: ["Airbrush Bridal Makeup", "Hairstyle & Florals", "Saree / Outfit Draping"],
+    includes: ["Airbrush Bridal Makeup", "Hairstyle", "Saree / Outfit Draping"],
     price: "₹20,000",
     priceNote: "based on event details",
     img: airbrushNew1,
@@ -182,8 +182,8 @@ function ServicesPage() {
       <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-charcoal2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <SectionLabel>Our Services</SectionLabel>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-ivory tracking-tight">
-            Bridal Artistry &amp; <span className="shimmer">Signature Packages</span>
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">
+            Bridal Artistry &amp; Signature Packages
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
             Personalized bridal looks crafted by understanding skin type, texture, and preference.
@@ -238,9 +238,6 @@ function ServicesPage() {
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
                       <div className="col-span-2 relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="aspect-[16/9] w-full h-full rounded-xl object-cover object-center" />
-                        <div className="absolute top-3 left-3 sm:top-5 sm:left-5 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs sm:text-sm font-bold text-gold shadow-lg">
-                          {service.num}
-                        </div>
                       </div>
                       <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="aspect-[4/5] w-full h-full rounded-xl object-cover object-center" />
@@ -253,9 +250,6 @@ function ServicesPage() {
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
                       <div className="relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="aspect-[3/4] w-full h-full rounded-xl object-cover object-center" />
-                        <div className="absolute top-3 left-3 sm:top-5 sm:left-5 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs sm:text-sm font-bold text-gold shadow-lg">
-                          {service.num}
-                        </div>
                       </div>
                       <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="aspect-[3/4] w-full h-full rounded-xl object-cover object-center" />
@@ -269,15 +263,9 @@ function ServicesPage() {
                         loading="lazy"
                         className="aspect-[4/5] w-full rounded-xl sm:rounded-2xl object-cover object-center"
                       />
-                      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs sm:text-sm font-bold text-gold shadow-lg">
-                        {service.num}
-                      </div>
                     </div>
                   ) : (
                     <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl bg-charcoal2 p-2 aspect-[4/5] flex items-center justify-center">
-                      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-charcoal/90 border border-gold/40 text-xs sm:text-sm font-bold text-gold shadow-lg">
-                        {service.num}
-                      </div>
                       <span className="text-gold/50 font-serif text-lg italic">Image Coming Soon</span>
                     </div>
                   )}
@@ -285,7 +273,6 @@ function ServicesPage() {
 
                 {/* Content Side */}
                 <div className={`lg:col-span-7 ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <span className="font-serif text-4xl sm:text-6xl font-bold text-gold/25">{service.num}</span>
                   <h3 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-ivory">{service.name}</h3>
                   <p className="mt-3 sm:mt-4 text-sm sm:text-base font-medium text-cream/90 leading-relaxed">{service.tagline}</p>
 
