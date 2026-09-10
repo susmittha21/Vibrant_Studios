@@ -97,8 +97,7 @@ function AcademyPage() {
                     <img src={academy2} alt="15 days makeup master class" className="max-h-80 w-full object-contain" />
                   </div>
                   <div className="flex flex-col justify-center p-6 sm:p-8">
-                    <span className="font-serif text-4xl font-bold text-golddark">01</span>
-                    <h3 className="mt-2 font-serif text-2xl font-bold text-wine">15 days makeup master class</h3>
+                    <h3 className="font-serif text-2xl font-bold text-wine">15 days makeup master class</h3>
                     <p className="mt-3 text-sm leading-relaxed text-wine/70">Learn professional makeup techniques through guided, hands-on practice.</p>
                     <a href="/#contact" className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-golddark hover:text-gold">Enquire about the class →</a>
                   </div>
@@ -111,8 +110,7 @@ function AcademyPage() {
                     <img src={academy3} alt="Beautician classes" className="max-h-80 w-full object-contain" />
                   </div>
                   <div className="flex flex-col justify-center p-6 sm:p-8">
-                    <span className="font-serif text-4xl font-bold text-gold">02</span>
-                    <h3 className="mt-2 font-serif text-2xl font-bold text-white">Beautician classes also taken</h3>
+                    <h3 className="font-serif text-2xl font-bold text-white">Beautician classes also taken</h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/75">Practical beauty training for students who want to grow their professional skills.</p>
                     <a href="/#contact" className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-gold hover:text-goldlight">Enquire about the class →</a>
                   </div>
