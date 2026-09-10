@@ -28,6 +28,11 @@ import airbrush1 from "@/assets/airbrush-1.jpg";
 import airbrush2 from "@/assets/airbrush-2.jpg";
 import airbrush3 from "@/assets/airbrush-3.jpg";
 
+const INSTAGRAM = "https://www.instagram.com/kishaley_makeupartist";
+const WHATSAPP = "https://wa.me/919894144977";
+const PHONE1 = "+91 98941 44977";
+const PHONE2 = "+91 75989 17977";
+
 export const Route = createFileRoute("/portfolio")({
   component: PortfolioPage,
   head: () => ({
@@ -104,23 +109,24 @@ function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-charcoal font-sans text-cream antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-ivory font-sans text-wine antialiased overflow-x-hidden">
       {/* Navbar */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-gold/15 bg-charcoal/92 backdrop-blur-md shadow-md">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
             <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain shadow-xs" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-goldlight">
+            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
           </a>
 
-          <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-cream/75 md:flex">
+          <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-wine/75 md:flex">
             {[
               ["/",          "Home"],
               ["/#about",    "About"],
               ["/services",  "Services"],
               ["/portfolio", "Portfolio"],
+              ["/academy",   "Academy"],
               ["/journal",   "Journal"],
               ["/#contact",  "Contact"],
             ].map(([href, label]) => (
@@ -141,22 +147,22 @@ function PortfolioPage() {
       </header>
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-charcoal2">
+      <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-champagne">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <p className="mb-2.5 sm:mb-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-rose">
             Bridal Gallery
           </p>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-golddark tracking-tight">
             Portfolio by Occasion
           </h1>
-          <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
+          <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-wine/75 leading-relaxed">
             Select a bridal occasion below to explore our signature transformations and artistry notes.
           </p>
         </div>
       </section>
 
       {/* Options Section */}
-      <section className="py-16 sm:py-24 bg-charcoal">
+      <section className="py-16 sm:py-24 bg-ivory">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {portfolioOptions.map((opt) => {
@@ -167,19 +173,19 @@ function PortfolioPage() {
                   onClick={() => handleOptionClick(opt.id)}
                   className={`flex flex-col text-left p-6 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? "bg-charcoal2 border-gold shadow-2xl scale-[1.02]"
-                      : "glass-card-dark border-gold/25 hover:border-gold/60 hover:-translate-y-1 shadow-md"
+                      ? "bg-champagne border-gold shadow-2xl scale-[1.02]"
+                      : "glass-card-light border-gold/25 hover:border-gold/60 hover:-translate-y-1 shadow-md"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-gold font-serif text-lg">✦</span>
                   </div>
 
-                  <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-ivory">
+                  <h3 className="mt-4 font-serif text-xl sm:text-2xl font-bold text-wine">
                     {opt.title}
                   </h3>
 
-                  <p className="mt-2.5 text-xs sm:text-sm text-cream/75 leading-relaxed flex-1">
+                  <p className="mt-2.5 text-xs sm:text-sm text-wine/70 leading-relaxed flex-1">
                     {opt.desc}
                   </p>
 
@@ -194,12 +200,12 @@ function PortfolioPage() {
 
           {/* Selected Option Image Display Container */}
           {selectedCategory && activeOption && (
-            <div ref={galleryRef} className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-gold/30 bg-charcoal2 p-6 sm:p-10 text-center animate-fade-in scroll-mt-24">
+            <div ref={galleryRef} className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-gold/30 bg-champagne p-6 sm:p-10 text-center animate-fade-in scroll-mt-24">
               <span className="text-gold font-serif text-2xl">✦</span>
-              <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-bold text-ivory">
+              <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-bold text-wine">
                 {activeOption.title}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-cream/75 max-w-xl mx-auto">
+              <p className="mt-2 text-xs sm:text-sm text-wine/70 max-w-xl mx-auto">
                 {activeOption.desc}
               </p>
 
@@ -208,7 +214,7 @@ function PortfolioPage() {
                 {activeOption.photos.map((imgSrc, idx) => (
                   <div
                     key={idx}
-                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
+                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal3 p-1"
                   >
                     <img
                       src={imgSrc}
@@ -248,8 +254,39 @@ function PortfolioPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gold/15 bg-charcoal2 py-10 text-center text-xs text-cream/50">
-        <p>© 2026 Kishaley Makeup Artist. Portfolio Page · Pondicherry</p>
+      <footer className="border-t border-gold/15 bg-charcoal2 text-cream">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+          <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
+            <div>
+              <div className="mb-3 flex items-center gap-3 sm:mb-4">
+                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain sm:h-12 sm:w-12" />
+                <span className="font-serif text-base font-bold text-goldlight sm:text-lg">Kishaley Makeup Artist</span>
+              </div>
+              <p className="text-xs leading-relaxed text-cream/60">Since 2014. 2000+ happy brides. Studio in Pondicherry.</p>
+            </div>
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">Quick Links</p>
+              <ul className="flex flex-col gap-2 text-xs text-cream/75 sm:text-sm">
+                {[["/", "Home"], ["/#about", "About"], ["/services", "Services"], ["/portfolio", "Portfolio"], ["/academy", "Academy"], ["/journal", "Journal"], ["/#contact", "Book Now"]].map(([href, label]) => (
+                  <li key={href}><a href={href} className="font-medium transition hover:text-gold">{label}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div className="sm:col-span-2 md:col-span-1">
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">Get In Touch</p>
+              <div className="flex flex-col gap-2.5 text-xs text-cream/75 sm:gap-3 sm:text-sm">
+                <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="font-semibold transition hover:text-gold">@kishaley_makeupartist</a>
+                <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE1}</a>
+                <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE2}</a>
+                <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-medium transition hover:text-gold">WhatsApp 24/7</a>
+                <p className="text-cream/60">Pondicherry, Tamil Nadu</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-gold/10 pt-6 text-center text-[11px] text-cream/40 sm:mt-10 sm:pt-8">
+            <p>© 2026 Kishaley Makeup Artist. Crafted with care in Pondicherry · India</p>
+          </div>
+        </div>
       </footer>
     </div>
   );

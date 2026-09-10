@@ -146,23 +146,24 @@ function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-charcoal font-sans text-cream antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-ivory font-sans text-wine antialiased overflow-x-hidden">
       {/* ══ NAVBAR ══ */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-gold/15 bg-charcoal/92 backdrop-blur-md shadow-md">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
             <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain shadow-xs" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-goldlight">
+            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
           </a>
 
-          <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-cream/75 md:flex">
+          <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-wine/75 md:flex">
             {[
               ["/",          "Home"],
               ["/#about",    "About"],
               ["/services",  "Services"],
               ["/portfolio", "Portfolio"],
+              ["/academy",   "Academy"],
               ["/journal",   "Journal"],
               ["/#contact",  "Contact"],
             ].map(([href, label]) => (
@@ -183,13 +184,13 @@ function ServicesPage() {
       </header>
 
       {/* ══ HERO BANNER ══ */}
-      <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-charcoal2">
+      <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-champagne">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <SectionLabel>Our Services</SectionLabel>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-golddark tracking-tight">
             Bridal Artistry &amp; Signature Packages
           </h1>
-          <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
+          <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-wine/75 leading-relaxed">
             Personalized bridal looks crafted by understanding skin type, texture, and preference.
             Every service includes complete Makeup, Hairstyle, and Saree Draping.
           </p>
@@ -202,8 +203,8 @@ function ServicesPage() {
                 onClick={() => scrollToService(s.id)}
                 className={`text-xs px-4 py-2 rounded-full border transition cursor-pointer ${
                   selectedServiceId === s.id
-                    ? "bg-gold text-charcoal border-gold font-bold shadow-md"
-                    : "bg-charcoal/80 text-cream/80 border-gold/30 hover:border-gold hover:text-gold"
+                    ? "bg-gold text-white border-gold font-bold shadow-md"
+                    : "bg-white text-wine/75 border-charcoal3/30 hover:border-gold hover:text-golddark"
                 }`}
               >
                 {s.name}
@@ -216,11 +217,11 @@ function ServicesPage() {
       <GoldDivider />
 
       {/* ══ 4 PRIMARY SERVICES ══ */}
-      <section className="py-16 sm:py-24 bg-charcoal">
+      <section className="py-16 sm:py-24 bg-ivory">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-12 sm:mb-16 text-center">
             <SectionLabel>Signature Packages</SectionLabel>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-wine">
               Explore Our Bridal Services
             </h2>
           </div>
@@ -233,34 +234,34 @@ function ServicesPage() {
                 className={`grid items-center gap-8 sm:gap-12 grid-cols-1 lg:grid-cols-12 scroll-mt-28 p-6 sm:p-8 rounded-3xl transition-all duration-300 ${
                   selectedServiceId === service.id
                     ? "bg-charcoal2/90 border border-gold/40 shadow-2xl"
-                    : "glass-card-dark border border-gold/20"
+                    : "glass-card-light border border-gold/20"
                 }`}
               >
                 {/* Photo Side */}
                 <div className={`lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
                   {service.gallery && service.gallery.length === 3 ? (
                     <div className="grid grid-cols-2 items-start gap-2 sm:gap-3 relative">
-                      <div className="col-span-2 relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="col-span-2 relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal3">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
-                      <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal3">
                         <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
-                      <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal3">
                         <img src={service.gallery[2]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                     </div>
                   ) : service.gallery && service.gallery.length === 2 ? (
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
-                      <div className="relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal3">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
-                      <div className="self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal3">
                         <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                     </div>
                   ) : service.img ? (
-                    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl bg-charcoal2 p-2">
+                    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 shadow-2xl bg-charcoal3 p-2">
                       <img
                         src={service.img}
                         alt={service.alt}
@@ -277,8 +278,8 @@ function ServicesPage() {
 
                 {/* Content Side */}
                 <div className={`lg:col-span-7 ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <h3 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-ivory">{service.name}</h3>
-                  <p className="mt-3 sm:mt-4 text-sm sm:text-base font-medium text-cream/90 leading-relaxed">{service.tagline}</p>
+                  <h3 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-wine">{service.name}</h3>
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base font-medium text-wine/75 leading-relaxed">{service.tagline}</p>
 
                   <div className="mt-5 sm:mt-6">
                     <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-gold/70 mb-2">Package Includes:</p>
@@ -294,7 +295,7 @@ function ServicesPage() {
                   <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gold/20 flex flex-wrap items-center justify-between gap-4">
                     <div>
                       <p className="font-serif text-2xl sm:text-3xl font-bold text-gold">{service.price}</p>
-                      <p className="text-[10px] sm:text-xs font-medium text-cream/50">*{service.priceNote}</p>
+                      <p className="text-[10px] sm:text-xs font-medium text-wine/55">*{service.priceNote}</p>
                     </div>
                     <a href="/#contact" className="btn-primary text-xs py-2.5 px-5 sm:py-3 sm:px-6">
                       Reserve for Your Wedding ✦
@@ -382,9 +383,9 @@ function ServicesPage() {
             <div>
               <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-gold/80">Quick Links</p>
               <ul className="flex flex-col gap-2 text-xs sm:text-sm text-cream/70">
-                {[["/","Home"],["/#about","About"],["/services","Services"],["/portfolio","Portfolio"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
-                  <li key={h}><a href={h} className="hover:text-gold transition font-medium">{l}</a></li>
-                ))}
+                 {[["/","Home"],["/#about","About"],["/services","Services"],["/portfolio","Portfolio"],["/academy","Academy"],["/journal","Journal"],["/#contact","Book Now"]].map(([h,l])=>(
+                 <li key={h}><a href={h} className="hover:text-gold transition font-medium">{l}</a></li>
+                 ))}
               </ul>
             </div>
             <div className="sm:col-span-2 md:col-span-1">
@@ -405,7 +406,7 @@ function ServicesPage() {
       </footer>
 
       {/* Floating WhatsApp */}
-      <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" style={{animation:"pulse-soft 2.5s infinite"}} className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110 active:scale-95">
+      <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" style={{animation:"pulse-soft 2.5s infinite"}} className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gold text-wine shadow-2xl transition hover:scale-110 active:scale-95">
         <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       </a>
     </div>
