@@ -61,7 +61,7 @@ const primaryServices = [
     price: "₹8,000",
     priceNote: "per session",
     img: dewyOne,
-    gallery: [dewyOne, glassTwo],
+    gallery: [dewyOne, dewy2],
     alt: "Dewy finish bridal look by Kishaley",
   },
   {
@@ -239,7 +239,7 @@ function ServicesPage() {
                 {/* Photo Side */}
                 <div className={`lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
                   {service.gallery && service.gallery.length === 3 ? (
-                    <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
+                    <div className="grid grid-cols-2 items-start gap-2 sm:gap-3 relative">
                       <div className="col-span-2 relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
@@ -252,10 +252,10 @@ function ServicesPage() {
                     </div>
                   ) : service.gallery && service.gallery.length === 2 ? (
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
-                      <div className="relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
-                      <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
+                      <div className="self-start overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
                         <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                     </div>
