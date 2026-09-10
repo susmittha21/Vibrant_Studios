@@ -136,8 +136,8 @@ function PortfolioPage() {
           <p className="mb-2.5 sm:mb-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-rose">
             Bridal Gallery
           </p>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-ivory tracking-tight">
-            Portfolio by <span className="shimmer">Occasion</span>
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">
+            Portfolio by Occasion
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
             Select a bridal occasion below to explore our signature transformations and artistry notes.
@@ -198,18 +198,12 @@ function PortfolioPage() {
                 {activeOption.photos.map((imgSrc, idx) => (
                   <div
                     key={idx}
-                    className={`group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1 ${
-                      activeOption.id === "reception" ? "" : "aspect-[3/4]"
-                    }`}
+                    className="group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
                   >
                     <img
                       src={imgSrc}
                       alt={`${activeOption.title} preview ${idx + 1}`}
-                      className={`w-full rounded-xl transition duration-500 group-hover:scale-105 ${
-                        activeOption.id === "reception"
-                          ? "h-auto object-contain"
-                          : "h-full object-cover object-top"
-                      }`}
+                      className="h-auto w-full rounded-xl object-contain transition duration-500 group-hover:scale-105"
                     />
                   </div>
                 ))}
@@ -224,7 +218,7 @@ function PortfolioPage() {
                       playsInline
                       preload="metadata"
                       aria-label={`${activeOption.title} video preview ${idx + 1}`}
-                      className="aspect-[3/4] w-full rounded-xl object-cover object-top"
+                      className="h-auto w-full rounded-xl object-contain"
                     />
                   </div>
                 ))}

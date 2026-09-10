@@ -297,7 +297,7 @@ function Index() {
         <div className="absolute inset-0 z-0">
           <img
             src={pinkSareeHero}
-            alt="Jayakala Bridal Makeup - Vibrant Bridal Studios"
+            alt="Jayakala Bridal Makeup - Vibrant Bridal Studio"
             className="h-full w-full object-cover object-[center_15%] sm:object-[70%_center] opacity-90 brightness-105"
           />
           {/* Gradients to darken the left side and bottom for left-aligned text legibility */}
@@ -315,7 +315,7 @@ function Index() {
           </div>
 
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-ivory tracking-tight max-w-3xl">
-            Vibrant <span className="shimmer not-italic text-goldlight">Bridal Studios</span>
+            Vibrant <span className="shimmer not-italic text-goldlight">Bridal Studio</span>
           </h1>
 
           <p className="mt-4 sm:mt-6 text-base sm:text-xl md:text-2xl font-serif text-gold font-semibold tracking-wide">

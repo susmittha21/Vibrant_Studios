@@ -191,8 +191,8 @@ function JournalPage() {
       <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-charcoal2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <SectionLabel>The Bridal Journal</SectionLabel>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-ivory tracking-tight">
-            Bridal Beauty <span className="shimmer">&amp; Artistry Insights</span>
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">
+            Bridal Beauty &amp; Artistry Insights
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-cream/80 leading-relaxed">
             Professional bridal makeup guidance, skin prep wisdom, and ceremony styling advice directly from Jayakala.

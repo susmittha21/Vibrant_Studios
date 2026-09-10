@@ -34,13 +34,13 @@
 }
 
 @theme {
-  /* ── Rich Luxury Warm Brown & Ivory Palette ── */
-  --color-charcoal:   oklch(0.20 0.035 48);     /* Deep rich warm espresso/chocolate brown */
-  --color-charcoal2:  oklch(0.24 0.038 48);     /* Elevated warm brown */
-  --color-charcoal3:  oklch(0.28 0.040 48);     /* Surface warm brown */
+  /* ── Neutral Slate & Ivory Palette ── */
+  --color-charcoal:   oklch(0.20 0.018 250);    /* Deep neutral slate */
+  --color-charcoal2:  oklch(0.24 0.020 250);    /* Elevated slate */
+  --color-charcoal3:  oklch(0.28 0.022 250);    /* Surface slate */
   --color-ivory:      oklch(0.975 0.015 85);    /* Soft warm light ivory */
   --color-champagne:  oklch(0.935 0.025 80);    /* Champagne card/section */
-  --color-cream:      oklch(0.93  0.025 85);    /* Light text on brown bg */
+  --color-cream:      oklch(0.93  0.025 85);    /* Light text on slate bg */
   --color-wine:       oklch(0.26  0.09  38);    /* Deep warm chocolate-wine text for light sections */
   --color-winesoft:   oklch(0.36  0.08  38);
   --color-gold:       oklch(0.78  0.16  75);    /* Radiant polished gold */
@@ -56,20 +56,20 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.20 0.035 48);
+  --background: oklch(0.20 0.018 250);
   --foreground: oklch(0.93 0.025 85);
-  --card:              oklch(0.24 0.038 48);
+  --card:              oklch(0.24 0.020 250);
   --card-foreground:   oklch(0.93 0.025 85);
-  --popover:           oklch(0.24 0.038 48);
+  --popover:           oklch(0.24 0.020 250);
   --popover-foreground:oklch(0.93 0.025 85);
   --primary:           oklch(0.78 0.16 75);
-  --primary-foreground:oklch(0.20 0.035 48);
-  --secondary:         oklch(0.28 0.040 48);
+  --primary-foreground:oklch(0.20 0.018 250);
+  --secondary:         oklch(0.28 0.022 250);
   --secondary-foreground:oklch(0.93 0.025 85);
-  --muted:             oklch(0.28 0.040 48);
+  --muted:             oklch(0.28 0.022 250);
   --muted-foreground:  oklch(0.70 0.025 85);
   --accent:            oklch(0.78 0.16 75);
-  --accent-foreground: oklch(0.20 0.035 48);
+  --accent-foreground: oklch(0.20 0.018 250);
   --destructive:       oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border:            oklch(0.78 0.16 75 / 24%);
@@ -136,7 +136,7 @@
 }
 
 @utility glass-card-dark {
-  background: oklch(0.24 0.038 48 / 88%);
+  background: oklch(0.24 0.020 250 / 88%);
   border: 1px solid oklch(0.78 0.16 75 / 24%);
   box-shadow: 0 12px 36px -10px rgba(25, 15, 10, 0.45);
   backdrop-filter: blur(10px);
@@ -205,7 +205,7 @@
   letter-spacing: 0.04em;
   border: 1.5px solid oklch(0.78 0.16 75 / 55%);
   color: oklch(0.90 0.12 80);
-  background: oklch(0.24 0.038 48 / 50%);
+  background: oklch(0.24 0.020 250 / 50%);
   transition: all 0.25s ease;
 
   &:hover {
@@ -281,7 +281,7 @@
   html { scroll-behavior: smooth; }
 
   ::-webkit-scrollbar { width: 7px; }
-  ::-webkit-scrollbar-track { background: oklch(0.20 0.035 48); }
+  ::-webkit-scrollbar-track { background: oklch(0.20 0.018 250); }
   ::-webkit-scrollbar-thumb { background: oklch(0.78 0.16 75 / 45%); border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: oklch(0.78 0.16 75 / 80%); }
 }

@@ -237,22 +237,22 @@ function ServicesPage() {
                   {service.gallery && service.gallery.length === 3 ? (
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
                       <div className="col-span-2 relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
-                        <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="aspect-[16/9] w-full h-full rounded-xl object-cover object-center" />
+                        <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                       <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
-                        <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="aspect-[4/5] w-full h-full rounded-xl object-cover object-center" />
+                        <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                       <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
-                        <img src={service.gallery[2]} alt={service.alt} loading="lazy" className="aspect-[4/5] w-full h-full rounded-xl object-cover object-center" />
+                        <img src={service.gallery[2]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                     </div>
                   ) : service.gallery && service.gallery.length === 2 ? (
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 relative">
                       <div className="relative overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
-                        <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="aspect-[3/4] w-full h-full rounded-xl object-cover object-center" />
+                        <img src={service.gallery[0]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                       <div className="overflow-hidden rounded-2xl border border-gold/30 shadow-xl p-1 bg-charcoal2">
-                        <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="aspect-[3/4] w-full h-full rounded-xl object-cover object-center" />
+                        <img src={service.gallery[1]} alt={service.alt} loading="lazy" className="h-auto w-full rounded-xl object-contain" />
                       </div>
                     </div>
                   ) : service.img ? (
@@ -261,7 +261,7 @@ function ServicesPage() {
                         src={service.img}
                         alt={service.alt}
                         loading="lazy"
-                        className="aspect-[4/5] w-full rounded-xl sm:rounded-2xl object-cover object-center"
+                        className="h-auto w-full rounded-xl sm:rounded-2xl object-contain"
                       />
                     </div>
                   ) : (
@@ -347,8 +347,8 @@ function ServicesPage() {
       {/* ══ CTA ══ */}
       <section className="py-16 sm:py-24 bg-charcoal">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-ivory">
-            Reserve your wedding morning with <span className="shimmer">Jayakala</span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-gold">
+            Reserve your wedding morning with Jayakala
           </h2>
           <p className="mx-auto mt-4 sm:mt-5 max-w-lg text-cream/75 text-xs sm:text-sm leading-relaxed">
             Limited dates each wedding season. Bookings open months in advance — reach out today for availability.
