@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import hd1 from "@/assets/hd-1.jpg";
 import hd2 from "@/assets/hd-2.jpg";
@@ -81,6 +81,16 @@ function PortfolioPage() {
   const galleryRef = useRef<HTMLDivElement | null>(null);
 
   const activeOption = portfolioOptions.find((o) => o.id === selectedCategory);
+
+  useEffect(() => {
+    const categoryFromHash = window.location.hash.slice(1);
+    if (!portfolioOptions.some((option) => option.id === categoryFromHash)) return;
+
+    setSelectedCategory(categoryFromHash);
+    window.setTimeout(() => {
+      galleryRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }, []);
 
   const handleOptionClick = (id: string) => {
     if (selectedCategory === id) {
@@ -194,11 +204,11 @@ function PortfolioPage() {
               </p>
 
               {/* Gallery displaying loaded photos and videos */}
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="mt-6 grid grid-cols-1 items-start sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {activeOption.photos.map((imgSrc, idx) => (
                   <div
                     key={idx}
-                    className="group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
+                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
                   >
                     <img
                       src={imgSrc}
@@ -210,7 +220,7 @@ function PortfolioPage() {
                 {activeOption.videos?.map((videoSrc, idx) => (
                   <div
                     key={`video-${idx}`}
-                    className="group relative overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
+                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
                   >
                     <video
                       src={videoSrc}

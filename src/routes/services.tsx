@@ -105,28 +105,32 @@ const primaryServices = [
 /* ── Occasion / Other Services (Aligned with Portfolio) ── */
 const otherServices = [
   {
+    id: "muhurtham",
     name: "Muhurtham Makeup",
     desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur designed for ritual mandap lighting and long-lasting wear.",
     img: dewy1,
-    link: "/portfolio",
+    link: "/portfolio#muhurtham",
   },
   {
+    id: "reception",
     name: "Reception Makeup",
     desc: "Glamorous evening looks, rich lehengas & modern bridal elegance with high-definition 4K camera diffusion and dramatic eye artistry.",
     img: hd1,
-    link: "/portfolio",
+    link: "/portfolio#reception",
   },
   {
+    id: "engagement",
     name: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones with velvet glass-skin finish to complement pastel drapes or evening gown attire.",
     img: glass1,
-    link: "/portfolio",
+    link: "/portfolio#engagement",
   },
   {
+    id: "christian-wedding",
     name: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals, veil draping & luminous flash-proof photography finish.",
     img: airbrushNew1,
-    link: "/portfolio",
+    link: "/portfolio#christian-wedding",
   },
 ];
 

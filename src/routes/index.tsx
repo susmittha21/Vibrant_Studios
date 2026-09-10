@@ -310,15 +310,19 @@ function Index() {
           <div className="flex items-center gap-4 mb-4 sm:mb-6">
             <span className="h-px w-8 sm:w-12 bg-gold"></span>
             <p className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-goldlight">
-              Pondicherry · Kishaley Makeup Artist · Since 2014
+              Pondicherry · Vibrant Bridal Studio · Since 2014
             </p>
           </div>
 
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-ivory tracking-tight max-w-3xl">
-            Vibrant <span className="shimmer not-italic text-goldlight">Bridal Studio</span>
+            Kishaley Makeup Artist
           </h1>
 
-          <p className="mt-4 sm:mt-6 text-base sm:text-xl md:text-2xl font-serif text-gold font-semibold tracking-wide">
+          <p className="mt-4 sm:mt-6 text-lg sm:text-2xl md:text-3xl font-serif text-gold font-semibold tracking-wide">
+            Vibrant Bridal Studio
+          </p>
+
+          <p className="mt-2 text-base sm:text-xl md:text-2xl font-serif text-goldlight font-semibold tracking-wide">
             Bridal &amp; Skin Finish Makeup Specialist
           </p>
 
