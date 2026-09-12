@@ -73,7 +73,7 @@ const articles: Article[] = [
       "When planning your wedding look, choosing between a Dewy Finish and Glass Skin comes down to skin type, climate, and the ceremony setting.",
       "A Dewy Finish is all about lit-from-within radiance. We focus on intense moisture prep, lightweight illuminating bases, and soft cream highlights. It gives a youthful, fresh-faced glow that looks breathtaking in morning rituals and natural outdoor daylight.",
       "Glass Skin, on the other hand, is a porcelain-smooth, poreless aesthetic. It balances high reflectivity with velvety oil-control. Using specialized layering of lightweight hydrating primers and micro-fine smoothing powders, blemishes and texture vanish without feeling heavy.",
-      "For South Indian weddings in Pondicherry and Tamil Nadu, Glass Skin is often preferred for long evening receptions with heavy spotlighting, while Dewy Finish is a favorite for intimate morning temple ceremonies."
+      "For South Indian weddings in Pondicherry, Glass Skin is often preferred for long evening receptions with heavy spotlighting, while Dewy Finish is a favorite for intimate morning temple ceremonies."
     ],
     keyTakeaways: [
       "Dewy: Best for dry to normal skin & daylight morning ceremonies.",
@@ -156,8 +156,8 @@ function JournalPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain shadow-xs" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">
+            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain mix-blend-screen" />
+            <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
           </a>
@@ -348,7 +348,7 @@ function JournalPage() {
           <div className="grid gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain" />
+                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain mix-blend-screen" />
                 <span className="font-serif text-base sm:text-lg font-bold text-goldlight">Kishaley Makeup Artist</span>
               </div>
               <p className="text-xs leading-relaxed text-cream/50">Since 2014. 2000+ happy brides. Studio in Pondicherry.</p>
@@ -368,7 +368,7 @@ function JournalPage() {
                 <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">{PHONE1}</a>
                 <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="hover:text-gold transition font-medium">{PHONE2}</a>
                 <a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-gold transition font-medium">WhatsApp 24/7</a>
-                <p>Pondicherry, Tamil Nadu</p>
+                <p>Pondicherry — 605004</p>
               </div>
             </div>
           </div>

@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
 
-import hd1 from "@/assets/hd-1.jpg";
-import hd2 from "@/assets/hd-2.jpg";
 import muhurtham1 from "@/assets/muhurtham-1.jpeg";
 import muhurtham2 from "@/assets/muhurtham-2.jpeg";
 import muhurtham3 from "@/assets/muthurtham-3.jpeg";
@@ -18,9 +16,21 @@ import reception4 from "@/assets/reception-4.jpg";
 import reception5 from "@/assets/reception-5.jpg";
 import reception6 from "@/assets/reception-6.jpeg";
 import reception7 from "@/assets/reception-7.jpeg";
+import reception8 from "@/assets/reception8.jpeg";
+import reception9 from "@/assets/reception9.jpeg";
+import reception10 from "@/assets/reception10.jpeg";
+import reception11 from "@/assets/reception11.jpeg";
+import reception12 from "@/assets/reception12.jpeg";
 import engagement1 from "@/assets/engagemnet-1.jpeg";
 import engagement2 from "@/assets/engagement-2.jpeg";
 import engagement3 from "@/assets/engagment-3.jpeg";
+import engagement4 from "@/assets/engagement4.jpeg";
+import engagement5 from "@/assets/engagement5.jpeg";
+import engagement6 from "@/assets/engagement6.jpeg";
+import engagement7 from "@/assets/engagement7.jpeg";
+import engagement8 from "@/assets/engagement8.jpeg";
+import engagement9 from "@/assets/engagement9.jpeg";
+import engagement10 from "@/assets/engagement10.jpeg";
 import christianWedding1 from "@/assets/christian-wedding-1.jpeg";
 import christianWedding2 from "@/assets/christian-wedding-2.jpeg";
 import christianWedding3 from "@/assets/christian-wedding-3.jpeg";
@@ -61,14 +71,14 @@ const portfolioOptions = [
     id: "reception",
     title: "Reception Makeup",
     desc: "Glamorous evening looks, rich lehengas & modern bridal elegance.",
-    photos: [reception1, reception2, reception3, reception4, reception5, hd1, hd2, reception6, reception7],
+    photos: [reception1, reception2, reception3, reception4, reception5, reception6, reception7, reception8, reception9, reception10, reception11, reception12],
     videos: ["/videos/hdvideo1.mp4", "/videos/hdvideo2.mp4"],
   },
   {
     id: "engagement",
     title: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones for pre-wedding celebrations.",
-    photos: [engagement1, engagement2, engagement3],
+    photos: [engagement1, engagement2, engagement3, engagement4, engagement5, engagement6, engagement7, engagement8, engagement9, engagement10],
     videos: ["/videos/glassskinvideo1.mp4"],
     journalNote: "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
   },
@@ -114,8 +124,8 @@ function PortfolioPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain shadow-xs" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">
+            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain mix-blend-screen" />
+            <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
           </a>
@@ -210,31 +220,25 @@ function PortfolioPage() {
               </p>
 
               {/* Gallery displaying loaded photos and videos */}
-              <div className="mt-6 grid grid-cols-1 items-start sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="mt-6 columns-1 gap-1.5 sm:columns-2 md:columns-4">
                 {activeOption.photos.map((imgSrc, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal3 p-1"
-                  >
+                  <div key={idx} className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]">
                     <img
                       src={imgSrc}
                       alt={`${activeOption.title} preview ${idx + 1}`}
-                      className="h-auto w-full rounded-xl object-contain transition duration-500 group-hover:scale-105"
+                      className="block h-auto w-full object-contain transition duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
                 ))}
                 {activeOption.videos?.map((videoSrc, idx) => (
-                  <div
-                    key={`video-${idx}`}
-                    className="group relative self-start overflow-hidden rounded-2xl border border-gold/30 shadow-lg bg-charcoal p-1"
-                  >
+                  <div key={`video-${idx}`} className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]">
                     <video
                       src={videoSrc}
                       controls
                       playsInline
                       preload="metadata"
                       aria-label={`${activeOption.title} video preview ${idx + 1}`}
-                      className="h-auto w-full rounded-xl object-contain"
+                      className="block h-auto w-full object-contain"
                     />
                   </div>
                 ))}
@@ -259,7 +263,7 @@ function PortfolioPage() {
           <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
             <div>
               <div className="mb-3 flex items-center gap-3 sm:mb-4">
-                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain sm:h-12 sm:w-12" />
+                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain mix-blend-screen sm:h-12 sm:w-12" />
                 <span className="font-serif text-base font-bold text-goldlight sm:text-lg">Kishaley Makeup Artist</span>
               </div>
               <p className="text-xs leading-relaxed text-cream/60">Since 2014. 2000+ happy brides. Studio in Pondicherry.</p>
@@ -279,7 +283,7 @@ function PortfolioPage() {
                 <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE1}</a>
                 <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE2}</a>
                 <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-medium transition hover:text-gold">WhatsApp 24/7</a>
-                <p className="text-cream/60">Pondicherry, Tamil Nadu</p>
+                <p className="text-cream/60">Pondicherry — 605004</p>
               </div>
             </div>
           </div>

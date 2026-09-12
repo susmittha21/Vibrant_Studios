@@ -39,8 +39,8 @@ function AcademyPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">Kishaley Makeup Artist</span>
+            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain mix-blend-screen" />
+            <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">Kishaley Makeup Artist</span>
           </a>
           <nav className="hidden items-center gap-5 lg:gap-7 text-sm font-medium text-wine/75 md:flex">
             {navItems.map(([href, label]) => (
@@ -127,7 +127,7 @@ function AcademyPage() {
           <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
             <div>
               <div className="mb-3 flex items-center gap-3 sm:mb-4">
-                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain sm:h-12 sm:w-12" />
+                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain mix-blend-screen sm:h-12 sm:w-12" />
                 <span className="font-serif text-base font-bold text-goldlight sm:text-lg">Kishaley Makeup Artist</span>
               </div>
               <p className="text-xs leading-relaxed text-cream/60">Since 2014. 2000+ happy brides. Studio in Pondicherry.</p>
@@ -148,7 +148,7 @@ function AcademyPage() {
                 <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE1}</a>
                 <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE2}</a>
                 <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-medium transition hover:text-gold">WhatsApp 24/7</a>
-                <p className="text-cream/60">Pondicherry, Tamil Nadu</p>
+                <p className="text-cream/60">Pondicherry — 605004</p>
               </div>
             </div>
           </div>

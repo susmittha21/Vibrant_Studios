@@ -228,8 +228,8 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain shadow-xs transition group-hover:scale-105" />
-            <span className="truncate font-serif text-base sm:text-xl font-bold tracking-tight text-wine">
+            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain mix-blend-screen transition group-hover:scale-105" />
+            <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
           </a>
@@ -313,7 +313,7 @@ function Index() {
           <div className="flex items-center gap-4 mb-4 sm:mb-6">
             <span className="h-px w-8 sm:w-12 bg-gold"></span>
             <p className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-goldlight">
-              Pondicherry · Vibrant Bridal Studio · Since 2014
+              Pondicherry · Since 2014
             </p>
           </div>
 
@@ -831,7 +831,7 @@ function Index() {
           <div className="grid gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain" />
+                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain mix-blend-screen" />
                 <span className="font-serif text-base sm:text-lg font-bold text-goldlight">Kishaley Makeup Artist</span>
               </div>
               <p className="text-xs leading-relaxed text-cream/60">
