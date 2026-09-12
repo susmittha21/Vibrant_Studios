@@ -124,7 +124,11 @@ function PortfolioPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-            <img src="/logo.png" alt="Kishaley Makeup Artist" className="h-9 w-9 sm:h-11 sm:w-11 shrink-0 rounded-full object-contain mix-blend-screen" />
+            <img
+              src="/logo.png"
+              alt="Kishaley Makeup Artist"
+              className="h-10 w-10 rounded-full border border-[#c7a76b]/30 bg-white/80 object-contain p-1 shadow-sm sm:h-12 sm:w-12"
+            />
             <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
             </span>
