@@ -318,7 +318,7 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex flex-col items-start justify-end overflow-hidden bg-charcoal pt-32 pb-10 sm:pt-40 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
+      <section className="relative flex flex-col items-start justify-start overflow-hidden bg-charcoal pt-16 pb-10 sm:justify-end sm:pt-40 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
         {/* Background Image Container — Visible on all devices */}
         <div className="absolute inset-0 z-0">
           <img
@@ -332,7 +332,7 @@ function Index() {
         </div>
 
         {/* Left-Aligned Hero Content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start justify-end px-4 sm:px-6 text-left mt-auto">
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start justify-end px-4 sm:px-6 text-left sm:mt-auto">
           <div className="flex items-center gap-4 mb-4 sm:mb-6">
             <span className="h-px w-8 sm:w-12 bg-gold"></span>
             <p className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-goldlight">
