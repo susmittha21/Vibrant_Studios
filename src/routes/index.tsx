@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 /* ── Clear authentic photos from studio PDF ── */
@@ -182,6 +182,11 @@ const PHONE1 = "+91 98941 44977";
 const PHONE2 = "+91 75989 17977";
 const GOOGLE_MAPS = "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry";
 const GOOGLE_REVIEWS = "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry";
+const HOME_SCROLL_POSITION_KEY = "home-scroll-position";
+
+function rememberHomeScrollPosition() {
+  sessionStorage.setItem(HOME_SCROLL_POSITION_KEY, String(window.scrollY));
+}
 
 /* ── Helpers ── */
 function GoldDivider() {
@@ -216,6 +221,20 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("wedding");
   const [selectedPhoto, setSelectedPhoto] = useState<{ src: string; alt: string; title: string; tag: string } | null>(null);
+
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem(HOME_SCROLL_POSITION_KEY);
+    if (!savedPosition) return;
+
+    sessionStorage.removeItem(HOME_SCROLL_POSITION_KEY);
+    const scrollPosition = Number(savedPosition);
+    if (!Number.isFinite(scrollPosition)) return;
+
+    const restoreScrollPosition = () => window.scrollTo(0, scrollPosition);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(restoreScrollPosition);
+    });
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -450,7 +469,7 @@ function Index() {
                 className="group flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl glass-card-light transition-all duration-300 hover:border-gold hover:-translate-y-1 shadow-md"
               >
                 {/* Photo */}
-                <a href={`/portfolio#${service.name === "Dewy Finish Look" ? "muhurtham" : service.name === "High Definition Look" ? "reception" : service.name === "Glass Skin Signature" ? "engagement" : "christian-wedding"}`} className="block overflow-hidden bg-charcoal3">
+                <a onClick={rememberHomeScrollPosition} href={`/portfolio#${service.name === "Dewy Finish Look" ? "muhurtham" : service.name === "High Definition Look" ? "reception" : service.name === "Glass Skin Signature" ? "engagement" : "christian-wedding"}`} className="block overflow-hidden bg-charcoal3">
                   <img
                     src={service.img}
                     alt={`${service.alt} - View in portfolio`}
@@ -492,14 +511,14 @@ function Index() {
             </p>
             <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {otherServices.map((s) => (
-                <a key={s.name} href={`/portfolio#${s.name === "Muhurtham Makeup" ? "muhurtham" : s.name === "Reception Makeup" ? "reception" : s.name === "Engagement Makeup" ? "engagement" : "christian-wedding"}`} className="rounded-xl sm:rounded-2xl bg-charcoal/70 p-4 sm:p-5 border border-gold/20 shadow-xs hover:border-gold transition">
+                <a key={s.name} onClick={rememberHomeScrollPosition} href={`/portfolio#${s.name === "Muhurtham Makeup" ? "muhurtham" : s.name === "Reception Makeup" ? "reception" : s.name === "Engagement Makeup" ? "engagement" : "christian-wedding"}`} className="rounded-xl sm:rounded-2xl bg-charcoal/70 p-4 sm:p-5 border border-gold/20 shadow-xs hover:border-gold transition">
                   <h4 className="font-serif text-lg sm:text-xl font-bold text-goldlight">{s.name}</h4>
                   <p className="mt-1.5 text-xs leading-relaxed text-cream/75">{s.desc}</p>
                 </a>
               ))}
             </div>
             <div className="mt-6 text-center">
-              <a href="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gold hover:underline transition">
+              <a onClick={rememberHomeScrollPosition} href="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gold hover:underline transition">
                 View Full Services Menu &amp; Packages →
               </a>
             </div>
@@ -562,6 +581,7 @@ function Index() {
             ].map((opt) => (
               <a
                 key={opt.title}
+                onClick={rememberHomeScrollPosition}
                 href={`/portfolio#${opt.id}`}
                 className="group flex flex-col p-6 sm:p-7 rounded-2xl sm:rounded-3xl glass-card-light border border-gold/25 hover:border-gold hover:-translate-y-1 transition duration-300 shadow-md"
               >
@@ -583,7 +603,7 @@ function Index() {
           </div>
 
           <div className="mt-10 sm:mt-12 text-center">
-            <a href="/portfolio" className="btn-primary text-xs sm:text-sm py-3 px-8 inline-flex items-center gap-2">
+            <a onClick={rememberHomeScrollPosition} href="/portfolio" className="btn-primary text-xs sm:text-sm py-3 px-8 inline-flex items-center gap-2">
               Explore Full Portfolio Page ✦
             </a>
           </div>
