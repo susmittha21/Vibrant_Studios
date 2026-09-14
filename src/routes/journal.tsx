@@ -17,8 +17,50 @@ export const Route = createFileRoute("/journal")({
         content:
           "Expert bridal makeup advice by Jayakala: Dewy vs Glass Skin, choosing HD makeup for 4K photography, and wedding day skin prep rituals in Pondicherry.",
       },
+      {
+        property: "og:title",
+        content: "Bridal Journal & Beauty Insights — Kishaley Makeup Artist, Pondicherry",
+      },
+      {
+        property: "og:description",
+        content:
+          "Expert bridal makeup advice by Jayakala: Dewy vs Glass Skin, choosing HD makeup for 4K photography, and wedding day skin prep rituals in Pondicherry.",
+      },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "https://kishaley.com/journal" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Bridal Journal & Beauty Insights — Kishaley Makeup Artist",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Expert bridal makeup advice by Jayakala: Dewy vs Glass Skin, choosing HD makeup for 4K photography, and wedding day skin prep rituals in Pondicherry.",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
     ],
-    links: [{ rel: "canonical", href: "/journal" }],
+    links: [{ rel: "canonical", href: "https://kishaley.com/journal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Kishaley Bridal Journal & Beauty Insights",
+          description:
+            "Expert bridal makeup advice, finish breakdowns, skincare prep guides, and beauty insights by Jayakala in Pondicherry.",
+          url: "https://kishaley.com/journal",
+          author: {
+            "@type": "Person",
+            name: "Jayakala",
+            jobTitle: "Bridal Makeup Specialist",
+          },
+        }),
+      },
+    ],
   }),
 });
 

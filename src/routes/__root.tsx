@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Kishaley Makeup Artistry — Pondicherry's trusted bridal makeup specialist. Dewy Finish, HD, Glass Skin, Airbrush, Groom Look, Draping. 2000+ brides. Available all over India.",
       },
+      { name: "theme-color", content: "#5c242e" },
       { name: "author", content: "Kishaley Makeup Artistry" },
       {
         property: "og:title",
@@ -94,7 +95,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Dewy Finish · HD · Glass Skin · Airbrush · Groom Look. Pondicherry based, available all over India. 2000+ happy brides since 2014.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      {
+        property: "og:image:alt",
+        content: "Kishaley Makeup Artist — Bridal Specialist Pondicherry",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Kishaley Makeup Artistry — Bridal Makeup Artist in Pondicherry",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Pondicherry's trusted bridal makeup specialist by Jayakala. Dewy Finish, HD, Glass Skin Signature & Airbrush.",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
     ],
     links: [
       {

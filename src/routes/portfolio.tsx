@@ -53,8 +53,44 @@ export const Route = createFileRoute("/portfolio")({
         content:
           "Explore Kishaley's bridal portfolio categorized by options: Muhurtham Makeup, Reception Makeup, Engagement Makeup, and Christian Wedding.",
       },
+      { property: "og:title", content: "Bridal Portfolio — Kishaley Makeup Artist, Pondicherry" },
+      {
+        property: "og:description",
+        content:
+          "Explore real bridal transformations: Muhurtham Makeup, Reception Makeup, Engagement Makeup, and Christian Wedding by Jayakala in Pondicherry.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kishaley.com/portfolio" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Bridal Portfolio — Kishaley Makeup Artist" },
+      {
+        name: "twitter:description",
+        content:
+          "Explore real brides in Muhurtham, Reception, Engagement, and Christian Wedding looks by Jayakala.",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: "https://kishaley.com/portfolio" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Kishaley Bridal Portfolio",
+          description:
+            "Real bridal transformations by Kishaley Makeup Artist in Pondicherry across Muhurtham, Reception, Engagement, and Christian Wedding ceremonies.",
+          url: "https://kishaley.com/portfolio",
+          creator: {
+            "@type": "Person",
+            name: "Jayakala",
+            jobTitle: "Bridal Makeup Artist",
+          },
+        }),
+      },
+    ],
   }),
 });
 

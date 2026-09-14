@@ -22,8 +22,105 @@ export const Route = createFileRoute("/services")({
         content:
           "Explore Kishaley's 4 signature services: Dewy Finish (₹8,000), High Definition (₹12,000), Glass Skin Signature (₹15,000), and Airbrush Makeup (₹20,000). Complete with Hairstyle & Saree Draping.",
       },
+      {
+        property: "og:title",
+        content: "Bridal Services & Packages — Kishaley Makeup Artist, Pondicherry",
+      },
+      {
+        property: "og:description",
+        content:
+          "Dewy Finish (₹8,000), HD (₹12,000), Glass Skin Signature (₹15,000), Airbrush (₹20,000). Complete with Hairstyle & Saree Draping.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kishaley.com/services" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Bridal Services & Packages — Kishaley Makeup Artist" },
+      {
+        name: "twitter:description",
+        content:
+          "Dewy Finish, HD, Glass Skin Signature & Airbrush makeup with hairstyling & saree draping in Pondicherry.",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://kishaley.com/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Bridal Makeup and Hairstyling",
+          provider: {
+            "@type": "BeautySalon",
+            name: "Kishaley Makeup Artist",
+            url: "https://kishaley.com",
+            telephone: "+919894144977",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "179, 100 Feet Road, Mudaliarpet",
+              addressLocality: "Puducherry",
+              postalCode: "605004",
+              addressCountry: "IN",
+            },
+          },
+          areaServed: {
+            "@type": "AdministrativeArea",
+            name: "Puducherry and All Over India",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Bridal Artistry Packages",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Dewy Finish Look",
+                  description: "Radiant, luminous bridal glow with makeup, hairstyle, and draping.",
+                },
+                price: "8000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "High Definition Look",
+                  description:
+                    "Flawless HD makeup for 4K video and photography with hairstyle and draping.",
+                },
+                price: "12000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Glass Skin Signature",
+                  description:
+                    "Signature velvety smooth glass skin bridal finish with hairstyle and draping.",
+                },
+                price: "15000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Airbrush Makeup",
+                  description:
+                    "Waterproof, lightweight micro-fine airbrush bridal coverage with hairstyle and draping.",
+                },
+                price: "20000",
+                priceCurrency: "INR",
+              },
+            ],
+          },
+        }),
+      },
+    ],
   }),
 });
 

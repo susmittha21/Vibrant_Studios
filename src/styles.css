@@ -89,7 +89,6 @@
 }
 
 @keyframes pulse-soft {
-
   0%,
   100% {
     box-shadow: 0 0 0 0 rgba(177, 63, 104, 0.42);
@@ -102,12 +101,14 @@
 
 /* ── Custom Utilities ── */
 @utility shimmer {
-  background: linear-gradient(110deg,
-      #8f294f 0%,
-      #b13f68 25%,
-      #d47797 45%,
-      #b13f68 65%,
-      #8f294f 100%);
+  background: linear-gradient(
+    110deg,
+    #8f294f 0%,
+    #b13f68 25%,
+    #d47797 45%,
+    #b13f68 65%,
+    #8f294f 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -117,12 +118,14 @@
 }
 
 @utility shimmer-dark {
-  background: linear-gradient(110deg,
-      #70203d 0%,
-      #8f294f 30%,
-      #b13f68 50%,
-      #8f294f 70%,
-      #70203d 100%);
+  background: linear-gradient(
+    110deg,
+    #70203d 0%,
+    #8f294f 30%,
+    #b13f68 50%,
+    #8f294f 70%,
+    #70203d 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -133,12 +136,14 @@
 
 @utility gold-rule {
   height: 1px;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(177, 63, 104, 0.3) 30%,
-      #b13f68 50%,
-      rgba(177, 63, 104, 0.3) 70%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(177, 63, 104, 0.3) 30%,
+    #b13f68 50%,
+    rgba(177, 63, 104, 0.3) 70%,
+    transparent 100%
+  );
 }
 
 @utility glass-card-dark {

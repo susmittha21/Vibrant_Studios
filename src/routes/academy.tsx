@@ -8,14 +8,53 @@ export const Route = createFileRoute("/academy")({
   component: AcademyPage,
   head: () => ({
     meta: [
-      { title: "Academy — Kishaley Makeup Artist, Pondicherry" },
+      { title: "Academy & Masterclasses — Kishaley Makeup Artist, Pondicherry" },
       {
         name: "description",
         content:
-          "15 days makeup master class and beautician classes also taken by Kishaley Makeup Artist.",
+          "Professional 15-day bridal makeup masterclass & beautician certification in Pondicherry by Jayakala. Hands-on skin prep, HD, Airbrush, and hair styling.",
+      },
+      {
+        property: "og:title",
+        content: "Bridal Makeup Academy — Kishaley Makeup Artist, Pondicherry",
+      },
+      {
+        property: "og:description",
+        content:
+          "Professional 15-day bridal makeup masterclasses, hands-on training, and beautician certification in Pondicherry by Jayakala.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kishaley.com/academy" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Bridal Makeup Academy — Kishaley Makeup Artist" },
+      {
+        name: "twitter:description",
+        content:
+          "15-day intensive professional bridal makeup masterclasses by certified artist Jayakala in Pondicherry.",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://kishaley.com/academy" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "15-Day Professional Bridal Makeup Masterclass",
+          description:
+            "Comprehensive 15-day hands-on bridal makeup masterclass covering skin prep, Dewy Finish, HD base, Glass Skin Signature, Airbrush, hairstyling, and draping in Pondicherry.",
+          provider: {
+            "@type": "EducationalOrganization",
+            name: "Kishaley Makeup Academy",
+            url: "https://kishaley.com/academy",
+            sameAs: "https://www.instagram.com/kishaley_makeupartist",
+          },
+        }),
       },
     ],
-    links: [{ rel: "canonical", href: "/academy" }],
   }),
 });
 

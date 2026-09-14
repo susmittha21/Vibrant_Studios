@@ -33,26 +33,127 @@ export const Route = createFileRoute("/")({
         content:
           "Dewy Finish · HD · Glass Skin · Airbrush. Pondicherry based. 2000+ happy brides since 2014.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kishaley.com/" },
+      { property: "og:image", content: "https://kishaley.com/logo.png" },
+      { property: "og:site_name", content: "Kishaley Makeup Artistry" },
+      { property: "og:locale", content: "en_IN" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Kishaley Makeup Artist — Pondicherry Bridal Makeup" },
+      {
+        name: "twitter:description",
+        content:
+          "Dewy Finish · HD · Glass Skin · Airbrush. Pondicherry based. 2000+ happy brides since 2014. Call: +91 9894144977",
+      },
+      { name: "twitter:image", content: "https://kishaley.com/logo.png" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://kishaley.com/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BeautySalon",
+          "@type": ["BeautySalon", "LocalBusiness"],
+          "@id": "https://kishaley.com/#business",
           name: "Kishaley Makeup Artist",
+          alternateName: "Vibrant Bridal Studio & Beauty Care",
+          founder: {
+            "@type": "Person",
+            name: "Jayakala",
+            jobTitle: "Bridal Makeup Artist & Specialist",
+          },
           description:
-            "Bridal makeup specialist in Pondicherry by Jayakala — Dewy Finish, HD, Glass Skin, Airbrush.",
+            "Pondicherry's trusted bridal makeup specialist since 2014 by Jayakala. Dewy Finish, HD, Glass Skin Signature, Airbrush makeup, bridal hairstyling, and saree draping with 2000+ brides styled.",
+          url: "https://kishaley.com",
+          image: "https://kishaley.com/logo.png",
+          telephone: "+919894144977",
+          priceRange: "₹8,000 - ₹20,000",
+          currenciesAccepted: "INR",
+          paymentAccepted: "Cash, UPI, Credit Card",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Pondicherry",
-            postalCode: "605001",
+            streetAddress: "179, 100 Feet Road, Mudaliarpet",
+            addressLocality: "Puducherry",
+            addressRegion: "Puducherry",
+            postalCode: "605004",
             addressCountry: "IN",
           },
-          telephone: "+919894144977",
-          url: "https://www.instagram.com/kishaley_makeupartist",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 11.9168,
+            longitude: 79.8143,
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "06:00",
+              closes: "21:00",
+            },
+          ],
+          sameAs: [
+            "https://www.instagram.com/kishaley_makeupartist",
+            "https://wa.me/919894144977",
+            "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry",
+          ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Bridal Artistry Services",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Dewy Finish Look",
+                  description:
+                    "A radiant, luminous bridal look that gives the appearance of a healthy, glowing complexion.",
+                },
+                price: "8000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "High Definition Look",
+                  description:
+                    "HD makeup designed to enhance features and stand out flawlessly in photos & 4K videos.",
+                },
+                price: "12000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Glass Skin Signature",
+                  description:
+                    "Signature bridal look with a smooth, velvety finish that conceals blemishes naturally.",
+                },
+                price: "15000",
+                priceCurrency: "INR",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Airbrush Makeup",
+                  description:
+                    "Weightless, waterproof micro-fine coverage that lasts from morning rites to send-off.",
+                },
+                price: "20000",
+                priceCurrency: "INR",
+              },
+            ],
+          },
         }),
       },
     ],
@@ -540,12 +641,13 @@ function Index() {
       </header>
 
       {/* ══ HERO BANNER SECTION (Pink Saree Hero Backdrop) ══ */}
-      <section className="relative flex flex-col items-start justify-start overflow-hidden bg-charcoal pt-20 pb-10 sm:justify-end sm:pt-44 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
+      <section className="relative flex flex-col items-start justify-start overflow-hidden bg-charcoal pt-20 pb-10 sm:justify-end sm:pt-20 sm:pb-16 min-h-[75vh] sm:min-h-[85vh]">
         {/* Background Image Container — Visible on all devices */}
         <div className="absolute inset-0 z-0">
           <img
             src={pinkSareeHero}
             alt="Jayakala Bridal Makeup - Vibrant Bridal Studio"
+            fetchPriority="high"
             className="h-full w-full object-cover object-[center_15%] sm:object-[70%_center] opacity-90 brightness-105"
           />
           {/* Gradients to darken the left side and bottom for left-aligned text legibility */}
