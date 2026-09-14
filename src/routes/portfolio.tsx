@@ -63,31 +63,74 @@ const portfolioOptions = [
     id: "muhurtham",
     title: "Muhurtham Makeup",
     desc: "Traditional silk saree, temple jewelry & timeless South Indian bridal grandeur.",
-    photos: [muhurtham1, muhurtham2, muhurtham3, muhurtham4, muhurtham5, muhurtham6, muhurtham7, muhurtham8],
+    photos: [
+      muhurtham1,
+      muhurtham2,
+      muhurtham3,
+      muhurtham4,
+      muhurtham5,
+      muhurtham6,
+      muhurtham7,
+      muhurtham8,
+    ],
     videos: ["/videos/airbrush-video1.mp4"],
-    journalNote: "Artistry Insight: Muhurtham ceremonies demand lightweight yet sweat-resistant skin prep under intense ritual mandap lighting. Rich gold jewelry & vibrant silk draping are balanced with warm glowing tones.",
+    journalNote:
+      "Artistry Insight: Muhurtham ceremonies demand lightweight yet sweat-resistant skin prep under intense ritual mandap lighting. Rich gold jewelry & vibrant silk draping are balanced with warm glowing tones.",
   },
   {
     id: "reception",
     title: "Reception Makeup",
     desc: "Glamorous evening looks, rich lehengas & modern bridal elegance.",
-    photos: [reception1, reception2, reception3, reception4, reception5, reception6, reception7, reception8, reception9, reception10, reception11, reception12],
+    photos: [
+      reception1,
+      reception2,
+      reception3,
+      reception4,
+      reception5,
+      reception6,
+      reception7,
+      reception8,
+      reception9,
+      reception10,
+      reception11,
+      reception12,
+    ],
     videos: ["/videos/hdvideo1.mp4", "/videos/hdvideo2.mp4"],
   },
   {
     id: "engagement",
     title: "Engagement Makeup",
     desc: "Fresh, radiant skin prep and soft romantic tones for pre-wedding celebrations.",
-    photos: [engagement1, engagement2, engagement3, engagement4, engagement5, engagement6, engagement7, engagement8, engagement9, engagement10],
+    photos: [
+      engagement1,
+      engagement2,
+      engagement3,
+      engagement4,
+      engagement5,
+      engagement6,
+      engagement7,
+      engagement8,
+      engagement9,
+      engagement10,
+    ],
     videos: ["/videos/glassskinvideo1.mp4"],
-    journalNote: "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
+    journalNote:
+      "Artistry Insight: Pre-wedding engagement functions call for a soft velvet glass-skin finish. Subtle highlights and romantic rosy undertones complement evening gown or soft pastel drape attire.",
   },
   {
     id: "christian-wedding",
     title: "Christian Wedding",
     desc: "Ethereal, glowing white-gown makeup with delicate hair florals & veil draping.",
-    photos: [christianWedding1, christianWedding2, christianWedding3, airbrush1, airbrush2, airbrush3],
-    journalNote: "Artistry Insight: White bridal gowns require precise color-matching and luminous skin finish that prevents flashback under flash photography while creating an ethereal, fresh morning glow.",
+    photos: [
+      christianWedding1,
+      christianWedding2,
+      christianWedding3,
+      airbrush1,
+      airbrush2,
+      airbrush3,
+    ],
+    journalNote:
+      "Artistry Insight: White bridal gowns require precise color-matching and luminous skin finish that prevents flashback under flash photography while creating an ethereal, fresh morning glow.",
   },
 ];
 
@@ -136,13 +179,13 @@ function PortfolioPage() {
 
           <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-wine/75 md:flex">
             {[
-              ["/",          "Home"],
-              ["/#about",    "About"],
-              ["/services",  "Services"],
+              ["/", "Home"],
+              ["/#about", "About"],
+              ["/services", "Services"],
               ["/portfolio", "Portfolio"],
-              ["/academy",   "Academy"],
-              ["/journal",   "Journal"],
-              ["/#contact",  "Contact"],
+              ["/academy", "Academy"],
+              ["/journal", "Journal"],
+              ["/#contact", "Contact"],
             ].map(([href, label]) => (
               <a
                 key={href}
@@ -154,7 +197,10 @@ function PortfolioPage() {
             ))}
           </nav>
 
-          <a href="/#contact" className="hidden btn-primary text-xs sm:inline-flex whitespace-nowrap">
+          <a
+            href="/#contact"
+            className="hidden btn-primary text-xs sm:inline-flex whitespace-nowrap"
+          >
             Book Now
           </a>
         </div>
@@ -163,6 +209,22 @@ function PortfolioPage() {
       {/* Hero Header */}
       <section className="relative overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20 bg-champagne">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
+          <div className="mb-3.5 flex items-center justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  window.location.href = "/";
+                }
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-white/90 px-3.5 py-1 text-xs font-semibold text-wine transition hover:border-gold hover:bg-white active:scale-95 cursor-pointer shadow-xs"
+            >
+              <span aria-hidden="true">←</span>
+              <span>Back to Home</span>
+            </button>
+          </div>
           <p className="mb-2.5 sm:mb-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-rose">
             Bridal Gallery
           </p>
@@ -170,7 +232,8 @@ function PortfolioPage() {
             Portfolio by Occasion
           </h1>
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-xs sm:text-base text-wine/75 leading-relaxed">
-            Select a bridal occasion below to explore our signature transformations and artistry notes.
+            Select a bridal occasion below to explore our signature transformations and artistry
+            notes.
           </p>
         </div>
       </section>
@@ -204,7 +267,9 @@ function PortfolioPage() {
                   </p>
 
                   <div className="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs">
-                    <span className="text-gold font-semibold">{isSelected ? "Viewing Category ↓" : "Click to View Category →"}</span>
+                    <span className="text-gold font-semibold">
+                      {isSelected ? "Viewing Category ↓" : "Click to View Category →"}
+                    </span>
                     <span className="text-cream/50">✦</span>
                   </div>
                 </button>
@@ -214,7 +279,10 @@ function PortfolioPage() {
 
           {/* Selected Option Image Display Container */}
           {selectedCategory && activeOption && (
-            <div ref={galleryRef} className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-gold/30 bg-champagne p-6 sm:p-10 text-center animate-fade-in scroll-mt-24">
+            <div
+              ref={galleryRef}
+              className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-gold/30 bg-champagne p-6 sm:p-10 text-center animate-fade-in scroll-mt-24"
+            >
               <span className="text-gold font-serif text-2xl">✦</span>
               <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-bold text-wine">
                 {activeOption.title}
@@ -223,10 +291,30 @@ function PortfolioPage() {
                 {activeOption.desc}
               </p>
 
+              <div className="mt-4 flex items-center justify-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && window.history.length > 1) {
+                      window.history.back();
+                    } else {
+                      window.location.href = "/";
+                    }
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-white/90 px-4 py-1.5 text-xs font-semibold text-wine transition hover:border-gold hover:bg-white active:scale-95 cursor-pointer shadow-xs"
+                >
+                  <span aria-hidden="true">←</span>
+                  <span>Back to Home</span>
+                </button>
+              </div>
+
               {/* Gallery displaying loaded photos and videos */}
               <div className="mt-6 columns-1 gap-1.5 sm:columns-2 md:columns-4">
                 {activeOption.photos.map((imgSrc, idx) => (
-                  <div key={idx} className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]">
+                  <div
+                    key={idx}
+                    className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]"
+                  >
                     <img
                       src={imgSrc}
                       alt={`${activeOption.title} preview ${idx + 1}`}
@@ -235,7 +323,10 @@ function PortfolioPage() {
                   </div>
                 ))}
                 {activeOption.videos?.map((videoSrc, idx) => (
-                  <div key={`video-${idx}`} className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]">
+                  <div
+                    key={`video-${idx}`}
+                    className="group relative mb-1.5 break-inside-avoid overflow-hidden rounded-[18px]"
+                  >
                     <video
                       src={videoSrc}
                       controls
@@ -246,13 +337,22 @@ function PortfolioPage() {
                     />
                   </div>
                 ))}
-                {[...Array(Math.max(0, 4 - activeOption.photos.length - (activeOption.videos?.length ?? 0)))].map((_, i) => (
+                {[
+                  ...Array(
+                    Math.max(
+                      0,
+                      4 - activeOption.photos.length - (activeOption.videos?.length ?? 0),
+                    ),
+                  ),
+                ].map((_, i) => (
                   <div
                     key={i}
                     className="aspect-[3/4] flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gold/30 bg-charcoal/60 p-4 text-center"
                   >
                     <span className="text-gold/40 font-serif text-2xl">✦</span>
-                    <span className="mt-2 text-xs font-semibold text-gold/60">More Photos Coming Soon</span>
+                    <span className="mt-2 text-xs font-semibold text-gold/60">
+                      More Photos Coming Soon
+                    </span>
                   </div>
                 ))}
               </div>
@@ -267,26 +367,74 @@ function PortfolioPage() {
           <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
             <div>
               <div className="mb-3 flex items-center gap-3 sm:mb-4">
-                <img src="/logo.png" alt="Kishaley" className="h-10 w-10 rounded-full object-contain mix-blend-screen sm:h-12 sm:w-12" />
-                <span className="font-serif text-base font-bold text-goldlight sm:text-lg">Kishaley Makeup Artist</span>
+                <img
+                  src="/logo.png"
+                  alt="Kishaley"
+                  className="h-10 w-10 rounded-full object-contain mix-blend-screen sm:h-12 sm:w-12"
+                />
+                <span className="font-serif text-base font-bold text-goldlight sm:text-lg">
+                  Kishaley Makeup Artist
+                </span>
               </div>
-              <p className="text-xs leading-relaxed text-cream/60">Since 2014. 2000+ happy brides. Studio in Pondicherry.</p>
+              <p className="text-xs leading-relaxed text-cream/60">
+                Since 2014. 2000+ happy brides. Studio in Pondicherry.
+              </p>
             </div>
             <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">Quick Links</p>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">
+                Quick Links
+              </p>
               <ul className="flex flex-col gap-2 text-xs text-cream/75 sm:text-sm">
-                {[["/", "Home"], ["/#about", "About"], ["/services", "Services"], ["/portfolio", "Portfolio"], ["/academy", "Academy"], ["/journal", "Journal"], ["/#contact", "Book Now"]].map(([href, label]) => (
-                  <li key={href}><a href={href} className="font-medium transition hover:text-gold">{label}</a></li>
+                {[
+                  ["/", "Home"],
+                  ["/#about", "About"],
+                  ["/services", "Services"],
+                  ["/portfolio", "Portfolio"],
+                  ["/academy", "Academy"],
+                  ["/journal", "Journal"],
+                  ["/#contact", "Book Now"],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <a href={href} className="font-medium transition hover:text-gold">
+                      {label}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
             <div className="sm:col-span-2 md:col-span-1">
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">Get In Touch</p>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gold/80 sm:mb-4">
+                Get In Touch
+              </p>
               <div className="flex flex-col gap-2.5 text-xs text-cream/75 sm:gap-3 sm:text-sm">
-                <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="font-semibold transition hover:text-gold">@kishaley_makeupartist</a>
-                <a href={`tel:${PHONE1.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE1}</a>
-                <a href={`tel:${PHONE2.replace(/\s/g, "")}`} className="font-medium transition hover:text-gold">{PHONE2}</a>
-                <a href={WHATSAPP} target="_blank" rel="noreferrer" className="font-medium transition hover:text-gold">WhatsApp 24/7</a>
+                <a
+                  href={INSTAGRAM}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold transition hover:text-gold"
+                >
+                  @kishaley_makeupartist
+                </a>
+                <a
+                  href={`tel:${PHONE1.replace(/\s/g, "")}`}
+                  className="font-medium transition hover:text-gold"
+                >
+                  {PHONE1}
+                </a>
+                <a
+                  href={`tel:${PHONE2.replace(/\s/g, "")}`}
+                  className="font-medium transition hover:text-gold"
+                >
+                  {PHONE2}
+                </a>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium transition hover:text-gold"
+                >
+                  WhatsApp 24/7
+                </a>
                 <p className="text-cream/60">Pondicherry — 605004</p>
               </div>
             </div>

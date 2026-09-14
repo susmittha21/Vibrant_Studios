@@ -84,7 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Kishaley Makeup Artistry — Pondicherry's trusted bridal makeup specialist. Dewy Finish, HD, Glass Skin, Airbrush, Groom Look, Draping. 2000+ brides. Available all over India.",
       },
       { name: "author", content: "Kishaley Makeup Artistry" },
-      { property: "og:title", content: "Kishaley Makeup Artistry — Bridal Makeup Artist in Pondicherry" },
+      {
+        property: "og:title",
+        content: "Kishaley Makeup Artistry — Bridal Makeup Artist in Pondicherry",
+      },
       {
         property: "og:description",
         content:

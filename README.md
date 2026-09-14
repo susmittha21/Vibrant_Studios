@@ -7,6 +7,7 @@ The official web application for **Kishaley Makeup Artistry** ([@kishaley_makeup
 A bespoke, responsive web presence showcasing signature bridal styles, service menus, Google reviews & location, and seamless booking options.
 
 ### Signature Services
+
 - **Dewy Finish Makeup** — Fresh, natural radiant bridal look
 - **HD Makeup** — Camera-ready flawless definition
 - **Glass Skin Makeup** — Luminous, seamless glow
@@ -23,6 +24,7 @@ A bespoke, responsive web presence showcasing signature bridal styles, service m
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or newer)
 - npm
 
@@ -34,6 +36,7 @@ npm run dev
 ```
 
 The development server will run at:
+
 ```
 http://localhost:8080
 ```
