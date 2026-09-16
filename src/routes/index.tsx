@@ -308,6 +308,9 @@ const ritual = [
 /* ── Constants ── */
 const INSTAGRAM = "https://www.instagram.com/kishaley_makeupartist";
 const WHATSAPP = "https://wa.me/919894144977";
+const WHATSAPP_BOOK = "https://wa.me/919894144977?text=Hi%20Jayakala%2C%20I%20would%20like%20to%20book%20a%20bridal%20makeup%20appointment.%20Please%20let%20me%20know%20the%20availability.";
+const WHATSAPP_RESERVE = "https://wa.me/919894144977?text=Hi%20Jayakala%2C%20I%20would%20like%20to%20reserve%20a%20date%20for%20my%20bridal%20makeup.%20Please%20let%20me%20know%20the%20available%20slots.";
+const WHATSAPP_CONSULT = "https://wa.me/919894144977?text=Hi%20Jayakala%2C%20I%20would%20like%20to%20book%20a%20consultation%20for%20bridal%20makeup.%20Can%20we%20schedule%20a%20time%3F";
 const PHONE1 = "+91 98941 44977";
 const PHONE2 = "+91 75989 17977";
 const GOOGLE_MAPS =
@@ -316,6 +319,15 @@ const GOOGLE_REVIEWS =
   "https://www.google.com/maps/search/?api=1&query=Vibrant+Bridal+Studio+%26+Beauty+Care,+179,+100+Feet+Road,+Mudaliarpet,+Puducherry";
 const HOME_SCROLL_POSITION_KEY = "kishaley-home-scroll-position";
 const HOME_SECTION_KEY = "kishaley-home-scroll-section";
+
+/* ── Smooth scroll with navbar offset ── */
+function smoothScrollTo(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const navbarHeight = 72; // fixed navbar height
+  const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+  window.scrollTo({ top, behavior: "smooth" });
+}
 
 function saveHomeScrollPosition(sectionId?: string) {
   if (typeof window === "undefined") return;
@@ -552,7 +564,7 @@ function Index() {
             <img
               src="/logo.png"
               alt="Kishaley Makeup Artist"
-              className="h-10 w-10 rounded-full border border-[#c7a76b]/30 bg-white/80 object-contain p-1 shadow-sm transition group-hover:scale-105 sm:h-12 sm:w-12"
+              className="h-11 w-11 rounded-full object-contain shadow-md transition group-hover:scale-105 sm:h-13 sm:w-13 brightness-110 saturate-110 drop-shadow-[0_2px_8px_rgba(177,63,104,0.35)]"
             />
             <span className="truncate font-serif text-lg sm:text-2xl font-bold tracking-tight text-wine">
               Kishaley Makeup Artist
@@ -560,32 +572,31 @@ function Index() {
           </a>
 
           <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-wine/75 md:flex">
-            {[
-              ["/", "Home"],
-              ["/#about", "About"],
-              ["/services", "Services"],
-              ["/portfolio", "Portfolio"],
-              ["/academy", "Academy"],
-              ["/journal", "Journal"],
-              ["/#contact", "Contact"],
-            ].map(([href, label]) => (
-              <a
-                key={href}
-                href={href}
-                className="transition-colors hover:text-gold font-medium whitespace-nowrap"
-              >
-                {label}
-              </a>
-            ))}
+            <a href="/" className="transition-colors hover:text-gold font-medium whitespace-nowrap">Home</a>
+            <button
+              type="button"
+              onClick={() => smoothScrollTo("about")}
+              className="transition-colors hover:text-gold font-medium whitespace-nowrap bg-transparent border-0 cursor-pointer p-0"
+            >About</button>
+            <a href="/services" className="transition-colors hover:text-gold font-medium whitespace-nowrap">Services</a>
+            <a href="/portfolio" className="transition-colors hover:text-gold font-medium whitespace-nowrap">Portfolio</a>
+            <a href="/academy" className="transition-colors hover:text-gold font-medium whitespace-nowrap">Academy</a>
+            <a href="/journal" className="transition-colors hover:text-gold font-medium whitespace-nowrap">Journal</a>
+            <button
+              type="button"
+              onClick={() => smoothScrollTo("contact")}
+              className="transition-colors hover:text-gold font-medium whitespace-nowrap bg-transparent border-0 cursor-pointer p-0"
+            >Contact</button>
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href="/#contact"
+            <button
+              type="button"
+              onClick={() => smoothScrollTo("contact")}
               className="hidden btn-primary text-xs sm:inline-flex whitespace-nowrap"
             >
               Book Now
-            </a>
+            </button>
             <button
               aria-label="Toggle menu"
               className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg p-2 md:hidden hover:bg-white/5 active:bg-white/10"
@@ -607,34 +618,22 @@ function Index() {
         {menuOpen && (
           <nav className="border-t border-gold/15 bg-charcoal/98 px-5 py-5 md:hidden shadow-2xl animate-fade-in">
             <ul className="flex flex-col gap-3.5 text-base font-medium text-cream/90">
-              {[
-                ["/", "Home"],
-                ["/#about", "About"],
-                ["/services", "Services"],
-                ["/portfolio", "Portfolio"],
-                ["/academy", "Academy"],
-                ["/journal", "Journal"],
-                ["/#contact", "Contact"],
-              ].map(([href, label]) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block py-1 hover:text-gold active:text-gold"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
+              <li><a href="/" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-gold active:text-gold">Home</a></li>
+              <li><button type="button" onClick={() => { setMenuOpen(false); smoothScrollTo("about"); }} className="block py-1 hover:text-gold active:text-gold bg-transparent border-0 cursor-pointer w-full text-left text-base font-medium text-cream/90">About</button></li>
+              <li><a href="/services" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-gold active:text-gold">Services</a></li>
+              <li><a href="/portfolio" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-gold active:text-gold">Portfolio</a></li>
+              <li><a href="/academy" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-gold active:text-gold">Academy</a></li>
+              <li><a href="/journal" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-gold active:text-gold">Journal</a></li>
+              <li><button type="button" onClick={() => { setMenuOpen(false); smoothScrollTo("contact"); }} className="block py-1 hover:text-gold active:text-gold bg-transparent border-0 cursor-pointer w-full text-left text-base font-medium text-cream/90">Contact</button></li>
             </ul>
             <div className="mt-5 pt-4 border-t border-gold/15">
-              <a
-                href="/#contact"
-                onClick={() => setMenuOpen(false)}
+              <button
+                type="button"
+                onClick={() => { setMenuOpen(false); smoothScrollTo("contact"); }}
                 className="btn-primary w-full text-center text-xs py-2.5"
               >
                 Book an Appointment ✦
-              </a>
+              </button>
             </div>
           </nav>
         )}
@@ -683,17 +682,20 @@ function Index() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto">
             <a
-              href="#contact"
+              href={WHATSAPP_RESERVE}
+              target="_blank"
+              rel="noreferrer"
               className="btn-primary text-xs sm:text-sm py-3.5 px-8 sm:px-10 shadow-xl text-center"
             >
               Reserve Your Date &rarr;
             </a>
-            <a
-              href="#services"
+            <button
+              type="button"
+              onClick={() => smoothScrollTo("services")}
               className="btn-outline text-xs sm:text-sm py-3.5 px-8 sm:px-10 text-center"
             >
               Explore Services
-            </a>
+            </button>
           </div>
 
           <div className="mt-12 sm:mt-16 flex flex-wrap gap-8 sm:gap-12 border-t border-gold/25 pt-6 sm:pt-8 max-w-2xl w-full">
@@ -784,7 +786,12 @@ function Index() {
                 >
                   ◎ @kishaley_makeupartist
                 </a>
-                <a href="#contact" className="btn-wine text-xs py-2.5 px-5 sm:py-3 sm:px-6">
+                <a
+                  href={WHATSAPP_CONSULT}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-wine text-xs py-2.5 px-5 sm:py-3 sm:px-6"
+                >
                   Book a Consultation
                 </a>
               </div>
@@ -860,9 +867,13 @@ function Index() {
                       </p>
                       <p className="text-[10px] font-medium text-wine/60">*{service.priceNote}</p>
                     </div>
-                    <a href="#contact" className="btn-primary text-xs py-2 px-3.5 sm:px-4">
+                    <button
+                      type="button"
+                      onClick={() => smoothScrollTo("contact")}
+                      className="btn-primary text-xs py-2 px-3.5 sm:px-4"
+                    >
                       Book
-                    </a>
+                    </button>
                   </div>
                 </div>
               </article>
@@ -1411,21 +1422,13 @@ function Index() {
                 Quick Links
               </p>
               <ul className="flex flex-col gap-2 text-xs sm:text-sm text-cream/75">
-                {[
-                  ["/", "Home"],
-                  ["/#about", "About"],
-                  ["/services", "Services"],
-                  ["/portfolio", "Portfolio"],
-                  ["/academy", "Academy"],
-                  ["/journal", "Journal"],
-                  ["/#contact", "Book Now"],
-                ].map(([href, label]) => (
-                  <li key={href}>
-                    <a href={href} className="hover:text-gold transition font-medium">
-                      {label}
-                    </a>
-                  </li>
-                ))}
+                <li><a href="/" className="hover:text-gold transition font-medium">Home</a></li>
+                <li><button type="button" onClick={() => smoothScrollTo("about")} className="hover:text-gold transition font-medium bg-transparent border-0 cursor-pointer p-0 text-xs sm:text-sm text-cream/75">About</button></li>
+                <li><a href="/services" className="hover:text-gold transition font-medium">Services</a></li>
+                <li><a href="/portfolio" className="hover:text-gold transition font-medium">Portfolio</a></li>
+                <li><a href="/academy" className="hover:text-gold transition font-medium">Academy</a></li>
+                <li><a href="/journal" className="hover:text-gold transition font-medium">Journal</a></li>
+                <li><button type="button" onClick={() => smoothScrollTo("contact")} className="hover:text-gold transition font-medium bg-transparent border-0 cursor-pointer p-0 text-xs sm:text-sm text-cream/75">Book Now</button></li>
               </ul>
             </div>
 
