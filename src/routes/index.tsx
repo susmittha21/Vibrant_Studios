@@ -357,6 +357,7 @@ function rememberHomeScrollPosition(sectionId?: string) {
 function restoreHomeScrollPosition() {
   if (typeof window === "undefined") return;
 
+  // Always disable browser's own scroll restoration — we own it
   if ("scrollRestoration" in window.history) {
     window.history.scrollRestoration = "manual";
   }
@@ -371,9 +372,10 @@ function restoreHomeScrollPosition() {
       targetY = Number(saved);
     }
   } catch {
-    // Ignore storage errors
+    // Ignore storage errors in private browsing
   }
 
+  // Fallback to history state if sessionStorage had nothing
   if ((targetY === null || !Number.isFinite(targetY)) && window.history?.state?.homeScrollY) {
     targetY = Number(window.history.state.homeScrollY);
     targetSectionId = window.history.state.homeSectionId || null;
@@ -384,17 +386,21 @@ function restoreHomeScrollPosition() {
   }
 
   const finalTargetY = targetY;
+  const finalSectionId = targetSectionId;
   let userInteracted = false;
+  let cleanupDone = false;
+
+  const cleanup = () => {
+    if (cleanupDone) return;
+    cleanupDone = true;
+    window.removeEventListener("touchstart", onUserInteraction);
+    window.removeEventListener("wheel", onUserInteraction);
+    window.removeEventListener("pointerdown", onUserInteraction);
+  };
 
   const onUserInteraction = () => {
     userInteracted = true;
     cleanup();
-  };
-
-  const cleanup = () => {
-    window.removeEventListener("touchstart", onUserInteraction);
-    window.removeEventListener("wheel", onUserInteraction);
-    window.removeEventListener("pointerdown", onUserInteraction);
   };
 
   window.addEventListener("touchstart", onUserInteraction, { passive: true });
@@ -403,14 +409,12 @@ function restoreHomeScrollPosition() {
 
   const executeScroll = () => {
     if (userInteracted) return;
-
     window.scrollTo({ top: finalTargetY, behavior: "instant" as ScrollBehavior });
-
-    // Fallback: If layout hasn't rendered full height yet, scroll to target section
-    if (Math.abs(window.scrollY - finalTargetY) > 80 && targetSectionId) {
-      const sectionEl = document.getElementById(targetSectionId);
-      if (sectionEl) {
-        sectionEl.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+    // If page hasn't expanded to full height yet, fallback to section
+    if (finalSectionId && Math.abs(window.scrollY - finalTargetY) > 80) {
+      const el = document.getElementById(finalSectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
       }
     }
   };
@@ -418,28 +422,31 @@ function restoreHomeScrollPosition() {
   // Immediate attempt
   executeScroll();
 
-  // Retry over requestAnimationFrame
+  // RAF-based retries for Safari's async rendering pipeline
   requestAnimationFrame(() => {
     executeScroll();
-    requestAnimationFrame(executeScroll);
+    requestAnimationFrame(() => {
+      executeScroll();
+    });
   });
 
-  // Scheduled retries for iPhone Safari WebKit async image decoding and layout expansion
-  const delays = [30, 70, 120, 200, 350, 500, 750, 1000, 1400, 1800];
-  delays.forEach((delay) => {
+  // Timed retries — iPhone Safari expands layout as images decode asynchronously
+  const delays = [50, 150, 300, 500, 800, 1200, 1800, 2400];
+  delays.forEach((ms) => {
     window.setTimeout(() => {
       if (userInteracted) return;
-      if (Math.abs(window.scrollY - finalTargetY) > 20) {
+      if (Math.abs(window.scrollY - finalTargetY) > 30) {
         executeScroll();
       }
-    }, delay);
+    }, ms);
   });
 
+  // Also retry once the page has fully loaded (all images decoded)
   if (document.readyState !== "complete") {
     window.addEventListener(
       "load",
       () => {
-        if (!userInteracted && Math.abs(window.scrollY - finalTargetY) > 20) {
+        if (!userInteracted && Math.abs(window.scrollY - finalTargetY) > 30) {
           executeScroll();
         }
       },
@@ -447,7 +454,8 @@ function restoreHomeScrollPosition() {
     );
   }
 
-  window.setTimeout(cleanup, 2500);
+  // Clean up interaction listeners after we're done
+  window.setTimeout(cleanup, 3000);
 }
 
 /* ── Helpers ── */
@@ -522,15 +530,16 @@ function Index() {
     };
 
     // 4. CRITICAL FOR IPHONE: Safari bfcache restoration
-    // When returning to home via back button or swipe-back gesture on iPhone Safari,
-    // pageshow is the event that fires when restored from bfcache!
-    const handlePageShow = () => {
-      restoreHomeScrollPosition();
-    };
-
-    // 5. Popstate event for history navigation
-    const handlePopState = () => {
-      restoreHomeScrollPosition();
+    // pageshow fires when Safari restores a page from the back-forward cache.
+    // We MUST check event.persisted — without it this fires on fresh loads too
+    // and causes a race condition that scrolls to the wrong position.
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        // Small delay to let Safari settle the restored DOM before we scroll
+        window.setTimeout(() => {
+          restoreHomeScrollPosition();
+        }, 50);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -538,7 +547,6 @@ function Index() {
     window.addEventListener("beforeunload", handlePageHide);
     document.addEventListener("visibilitychange", handlePageHide);
     window.addEventListener("pageshow", handlePageShow);
-    window.addEventListener("popstate", handlePopState);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -546,7 +554,6 @@ function Index() {
       window.removeEventListener("beforeunload", handlePageHide);
       document.removeEventListener("visibilitychange", handlePageHide);
       window.removeEventListener("pageshow", handlePageShow);
-      window.removeEventListener("popstate", handlePopState);
       if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, []);
