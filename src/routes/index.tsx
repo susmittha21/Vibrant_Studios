@@ -874,13 +874,16 @@ function Index() {
                       </p>
                       <p className="text-[10px] font-medium text-wine/60">*{service.priceNote}</p>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => smoothScrollTo("contact")}
-                      className="btn-primary text-xs py-2 px-3.5 sm:px-4"
+                    <a
+                      href={`https://wa.me/919894144977?text=${encodeURIComponent(
+                        `Hi Jayakala, I would like to book the ${service.name} package (${service.price}). Please let me know the availability.`,
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-primary text-xs py-2 px-3.5 sm:px-4 text-center"
                     >
                       Book
-                    </button>
+                    </a>
                   </div>
                 </div>
               </article>
